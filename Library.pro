@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-05-07T22:36:22
+# Project created by QtCreator 2017-04-09T20:26:48
 #
 #-------------------------------------------------
 
@@ -14,12 +14,42 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    login.cpp
+    loadBook.cpp \
+    loadPeople.cpp \
+    loadlogin.cpp \
+    saveBook.cpp \
+    savePeople.cpp \
+    getFirstLetter.cpp \
+    editPassword.cpp \
+    bookinformation.cpp \
+    peopleinformation.cpp \
+    bookdetail.cpp \
+    peopledetail.cpp \
+    copyInfoP.cpp \
+    copyInfoB.cpp
 
 HEADERS  += mainwindow.h \
-    login.h
+    loadBook.h \
+    loadPeople.h \
+    loadlogin.h \
+    saveBook.h \
+    savePeople.h \
+    getFirstLetter.h \
+    dataStruct.h \
+    editPassword.h \
+    bookinformation.h \
+    peopleinformation.h \
+    bookdetail.h \
+    peopledetail.h \
+    copyinfop.h \
+    copyinfob.h
 
 FORMS    += mainwindow.ui \
-    login.ui
+    loadlogin.ui \
+    editpassword.ui \
+    bookinformation.ui \
+    peopleinformation.ui \
+    bookdetail.ui \
+    peopledetail.ui
 
 RESOURCES +=

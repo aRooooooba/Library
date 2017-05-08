@@ -1,0 +1,1 @@
+void savePeople(int chooseFree);

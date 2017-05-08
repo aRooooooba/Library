@@ -1,20 +1,14 @@
 #include "login.h"
 #include "ui_login.h"
 
-login::login(QWidget *parent) :
+Login::Login(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::login)
+    ui(new Ui::Login)
 {
     ui->setupUi(this);
-    this->setWindowFlags(Qt::Window|Qt::FramelessWindowHint |Qt::WindowSystemMenuHint|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint);
 }
 
-login::~login()
+Login::~Login()
 {
     delete ui;
-}
-
-void login::on_exit_clicked()
-{
-    reject();
 }

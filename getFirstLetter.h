@@ -1,0 +1,1 @@
+int getFirstLetter(char * strName);
