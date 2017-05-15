@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>register.png</file>
+        <file>enter.png</file>
+        <file>login_bg.png</file>
+        <file>addPeople_bg.png</file>
+        <file>cancel.png</file>
+        <file>ensured.png</file>
+        <file>exit.png</file>
+        <file>login_exit.png</file>
+        <file>addBook_bg.png</file>
+        <file>myInformation.png</file>
+    </qresource>
+</RCC>

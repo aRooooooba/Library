@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>addPeople</class>
+ <widget class="QDialog" name="addPeople">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>360</width>
+    <height>585</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>添加人物信息</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">border-image: url(:/addPeople_bg.png);</string>
+  </property>
+  <widget class="QLineEdit" name="name">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>180</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请输入读者姓名</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>姓名</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="student">
+   <property name="geometry">
+    <rect>
+     <x>111</x>
+     <y>231</y>
+     <width>69</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请选择读者职业</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="text">
+    <string>学生</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="teacher">
+   <property name="geometry">
+    <rect>
+     <x>187</x>
+     <y>231</y>
+     <width>69</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请选择读者职业</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="text">
+    <string>老师</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ID">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>280</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请输入读者学生证号或教师工作证号</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>ID</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>340</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请输入密码</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>密码</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="password_2">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>400</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请重复密码</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>确认密码</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="academy">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>460</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>请输入读者学院</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="placeholderText">
+    <string>学院</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ensured">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>520</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>确认</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();
+border-image: url(:/ensured.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>520</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>取消</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();
+border-image: url(:/cancel.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

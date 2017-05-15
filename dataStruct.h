@@ -52,6 +52,12 @@ typedef struct personType
 	struct personType * nextPerson;
 }person,* personNode;
 
+typedef struct timeType
+{
+    int day;
+    int month;
+    int year;
+}time;
 
 #endif	//DATASTRUCT_H
 

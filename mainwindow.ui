@@ -6,156 +6,109 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>353</height>
+    <width>1004</width>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>图书馆</string>
+   <string>某校图书馆</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="welcome">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>72</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>欢迎您！</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="model">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
-      <width>72</width>
-      <height>15</height>
+      <y>20</y>
+      <width>141</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Adobe Arabic</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>堵着陌生人</string>
     </property>
    </widget>
-   <widget class="QLabel" name="name">
+   <widget class="QLabel" name="welcome">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>30</y>
-      <width>72</width>
-      <height>15</height>
+      <x>20</x>
+      <y>60</y>
+      <width>221</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Adobe Arabic</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>欢迎您！管理管理员</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="borrowBook">
+   <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>90</y>
-      <width>93</width>
-      <height>28</height>
+      <x>690</x>
+      <y>80</y>
+      <width>301</width>
+      <height>371</height>
      </rect>
     </property>
-    <property name="text">
-     <string>我要借书</string>
+    <property name="font">
+     <font>
+      <family>Adobe Arabic</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>操作</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="returnBook">
+   <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>90</y>
-      <width>93</width>
-      <height>28</height>
+      <x>20</x>
+      <y>100</y>
+      <width>171</width>
+      <height>361</height>
      </rect>
     </property>
-    <property name="text">
-     <string>我要还书</string>
+    <property name="font">
+     <font>
+      <family>Adobe Arabic</family>
+      <pointsize>14</pointsize>
+     </font>
     </property>
-   </widget>
-   <widget class="QPushButton" name="editPassword">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>140</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
+    <property name="title">
+     <string>注意事项</string>
     </property>
-    <property name="text">
-     <string>修改密码</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="myInformation">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>140</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>我的信息</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="manageBook">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>190</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>管理图书</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="managePeople">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>190</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>管理读者</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>10</y>
-      <width>72</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>当前日期</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="date">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>30</y>
-      <width>72</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
+    <widget class="QTextEdit" name="borrowWarning">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>151</width>
+       <height>141</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="reserveReminder">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>200</y>
+       <width>151</width>
+       <height>141</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -163,7 +116,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>380</width>
+     <width>1004</width>
      <height>26</height>
     </rect>
    </property>
