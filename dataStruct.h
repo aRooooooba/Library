@@ -54,10 +54,10 @@ typedef struct personType
 
 typedef struct timeType
 {
-    int day;
-    int month;
     int year;
-}time;
+    int month;
+    int day;
+}* time;
 
 #endif	//DATASTRUCT_H
 

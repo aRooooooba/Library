@@ -16,13 +16,23 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     login.cpp \
     addpeople.cpp \
-    addbook.cpp
+    addbook.cpp \
+    saveBook.cpp \
+    savePeople.cpp \
+    loadBook.cpp \
+    loadPeople.cpp \
+    functions.cpp \
+    Queue.cpp \
+    Time.cpp \
+    copyInfo.cpp \
+    Enter.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
     addpeople.h \
     addbook.h \
-    dataStruct.h
+    dataStruct.h \
+    functions.h
 
 FORMS    += mainwindow.ui \
     login.ui \

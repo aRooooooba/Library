@@ -16,8 +16,11 @@
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
+  <property name="toolTip">
+   <string/>
+  </property>
   <property name="styleSheet">
-   <string notr="true">border-image: url(:/login_bg.png);
+   <string notr="true">
 </string>
   </property>
   <widget class="QPushButton" name="exit">
@@ -73,6 +76,9 @@
      <inactive/>
      <disabled/>
     </palette>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
    </property>
    <property name="toolTip">
     <string>进入图书馆</string>
@@ -145,6 +151,37 @@
    </property>
    <property name="placeholderText">
     <string>密码</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="date">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>240</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>当前日期</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: \*url();</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

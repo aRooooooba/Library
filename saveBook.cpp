@@ -1,16 +1,14 @@
 #include <cstdio>
 #include <cstdlib>
 #include "dataStruct.h"
-
-extern bookNode bookHead;
-extern int teacher,student;
+#include "functions.h"
 
 void saveBook(int chooseFree)
 {
     int MAXRNUM=10;
     FILE * bookFile;
     bookNode bpointer1=NULL,bpointer2=bookHead->nextBook;
-    bookFile=fopen("C:\\Users\\aRooba\\Desktop\\Library\\bookFile.txt","w");
+    bookFile=fopen("D:\\Library\\bookFile.txt","w");
     while(bpointer2)
     {
         bpointer1=bpointer2;
@@ -27,7 +25,7 @@ void saveBook(int chooseFree)
         if(bpointer1->isBorrowed)
             fprintf(bookFile,"%d ",bpointer1->borrower);
         fprintf(bookFile,"%d\n",bpointer1->reserveNumber);
-		if(0!=bpointer1->reserveNumber)
+        if(bpointer1->reserveNumber)
 		{
 			for(int i=0;i<bpointer1->reserveNumber;i++)
 				fprintf(bookFile,"%d\n",bpointer1->reserveQueue.base[(bpointer1->reserveQueue.front+i)%MAXRNUM]);

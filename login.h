@@ -20,8 +20,14 @@ private slots:
 
     void on_register_2_clicked();
 
+    void on_enter_clicked();
+
 private:
     Ui::login *ui;
+
+protected:
+    void timerEvent(QTimerEvent *);
+    int begin;
 };
 
 #endif // LOGIN_H

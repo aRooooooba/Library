@@ -10,5 +10,13 @@
         <file>login_exit.png</file>
         <file>addBook_bg.png</file>
         <file>myInformation.png</file>
+        <file>bookInformation.png</file>
+        <file>peopleInformation.png</file>
+        <file>search.png</file>
+        <file>Detail.png</file>
+        <file>Information.png</file>
+        <file>editLimit.png</file>
+        <file>editPassword.png</file>
+        <file>addBook.png</file>
     </qresource>
 </RCC>

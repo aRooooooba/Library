@@ -1,0 +1,10 @@
+#include "dataStruct.h"
+#include "functions.h"
+#include <cstdio>
+
+void lodeTime()
+{
+    FILE * timeFile=fopen("D:\\Library\\time.txt","r");
+    fscanf(timeFile,"%d%d%d",&date->year,&date->month,&date->day);
+    fclose(timeFile);
+}

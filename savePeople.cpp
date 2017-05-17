@@ -1,15 +1,13 @@
 #include <cstdio>
 #include <cstdlib>
 #include "dataStruct.h"
-
-extern personNode peopleHead;
-extern int teacher,student;
+#include "functions.h"
 
 void savePeople(int chooseFree)
 {
 	FILE * peopleFile;
     personNode ppointer1=NULL,ppointer2=peopleHead->nextPerson;
-    peopleFile=fopen("C:\\Users\\aRooba\\Desktop\\Library\\peopleFile.txt","w");
+    peopleFile=fopen("D:\\Library\\peopleFile.txt","w");
     while(ppointer2)
     {
     	ppointer1=ppointer2;
