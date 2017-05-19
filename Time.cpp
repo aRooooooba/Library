@@ -22,7 +22,7 @@ void dateCalculator()
     if(32==date->day&&(1==date->month||3==date->month||5==date->month||7==date->month||8==date->month||10==date->month||12==date->month))
     {
         date->month++;
-        if(12==date->month)
+        if(13==date->month)
         {
             date->month=1;
             date->year++;

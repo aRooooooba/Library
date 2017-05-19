@@ -14,7 +14,7 @@
    <string>添加人物信息</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border-image: url(:/addPeople_bg.png);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLineEdit" name="name">
    <property name="geometry">
@@ -35,7 +35,7 @@
     <string>请输入读者姓名</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -63,7 +63,7 @@
     <string>请选择读者职业</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>学生</string>
@@ -88,7 +88,7 @@
     <string>请选择读者职业</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>老师</string>
@@ -113,7 +113,7 @@
     <string>请输入读者学生证号或教师工作证号</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -141,7 +141,7 @@
     <string>请输入密码</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -169,7 +169,7 @@
     <string>请重复密码</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
@@ -197,7 +197,7 @@
     <string>请输入读者学院</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="placeholderText">
     <string>学院</string>
@@ -216,11 +216,13 @@
     <string>确认</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();
-border-image: url(:/ensured.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="cancel">
@@ -236,13 +238,75 @@ border-image: url(:/ensured.png);</string>
     <string>取消</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();
-border-image: url(:/cancel.png);</string>
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>361</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/addPeople_bg.png);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>520</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/ensured.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>520</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/cancel.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>name</zorder>
+  <zorder>student</zorder>
+  <zorder>teacher</zorder>
+  <zorder>ID</zorder>
+  <zorder>password</zorder>
+  <zorder>password_2</zorder>
+  <zorder>academy</zorder>
+  <zorder>label_2</zorder>
+  <zorder>ensured</zorder>
+  <zorder>label_3</zorder>
+  <zorder>cancel</zorder>
  </widget>
  <resources/>
  <connections/>

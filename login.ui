@@ -20,13 +20,12 @@
    <string/>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QPushButton" name="exit">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>600</x>
      <y>290</y>
      <width>61</width>
      <height>61</height>
@@ -36,10 +35,13 @@
     <string>退出</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/login_exit.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="register_2">
@@ -55,16 +57,19 @@
     <string>注册</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/register.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="enter">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>340</x>
      <y>290</y>
      <width>61</width>
      <height>61</height>
@@ -84,7 +89,7 @@
     <string>进入图书馆</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/enter.png);
+    <string notr="true">
 
 
 
@@ -92,6 +97,9 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="userName">
@@ -113,7 +121,7 @@
     <string>请输入用户名</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -141,7 +149,7 @@
     <string>请输入密码</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -175,7 +183,7 @@
     <string>当前日期</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -184,6 +192,80 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>721</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/login_bg.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>290</y>
+     <width>61</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/enter.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>290</y>
+     <width>61</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/register.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>290</y>
+     <width>61</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/login_exit.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>date</zorder>
+  <zorder>password</zorder>
+  <zorder>userName</zorder>
+  <zorder>label_2</zorder>
+  <zorder>enter</zorder>
+  <zorder>label_3</zorder>
+  <zorder>register_2</zorder>
+  <zorder>label_4</zorder>
+  <zorder>exit</zorder>
  </widget>
  <resources/>
  <connections/>

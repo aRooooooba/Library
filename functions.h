@@ -14,12 +14,12 @@ void saveTime();
 void initQueue(SqQueue * Q);
 void enQueue(SqQueue * Q,int reserveid);
 void dateCalculator();
-void appendEnter(char * Source);
-void removeEnter(char * Source);
+char * appendEnter(char * Source);
+char * removeEnter(char * Source);
 
 extern personNode peopleHead,peopleTail,attentionP;
 extern bookNode bookHead,bookTail,attentionB;
-extern int teacher,student,theUser,reader,administrator,bookNUM,peopleNUM,MAXRNUM;
+extern int teacher,student,theUser,reader,administrator,bookNUM,peopleNUM,MAXRNUM,stopTimer;
 extern time date;
 extern char CEnter[500];
 

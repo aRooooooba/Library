@@ -26,7 +26,9 @@ login::~login()
 
 void login::timerEvent(QTimerEvent *event)
 {
-    if(event->timerId()==begin)
+    if(ui->password->hasFocus())
+        stopTimer=1;
+    if(event->timerId()==begin&&!stopTimer)
         dateCalculator();
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
 }
@@ -41,16 +43,24 @@ void login::on_exit_clicked()
 
 void login::on_register_2_clicked()
 {
+    stopTimer=1;
+    theUser=reader;
     addPeople a;
     if(Accepted==a.exec())
         savePeople(0);
+    stopTimer=0;
 }
 
 void login::on_enter_clicked()
 {
+    stopTimer=0;
     if("user"==ui->userName->text()&&"user"==ui->password->text())
     {
+        stopTimer=1;
         theUser=administrator;
+        ui->userName->clear();
+        ui->password->clear();
+        ui->userName->setFocus();
         accept();
     }
     else
@@ -62,6 +72,10 @@ void login::on_enter_clicked()
             {
                 if(ppointer->password==ui->password->text())
                 {
+                    stopTimer=1;
+                    ui->userName->clear();
+                    ui->password->clear();
+                    ui->userName->setFocus();
                     theUser=reader;
                     attentionP=ppointer;
                     accept();
@@ -69,7 +83,7 @@ void login::on_enter_clicked()
                 }
                 else
                 {
-                    QMessageBox::warning(this,tr("Error"),QString::fromLocal8Bit("ÃÜÂë´íÎó£¡"),QMessageBox::Yes);
+                    QMessageBox::critical(this,tr("Error"),QString::fromLocal8Bit("ÃÜÂë´íÎó£¡"),QMessageBox::Yes);
                     ui->password->clear();
                     ui->password->setFocus();
                     break;
@@ -80,7 +94,7 @@ void login::on_enter_clicked()
         }
         if(!ppointer)
         {
-            QMessageBox::warning(this,tr("Error"),QString::fromLocal8Bit("ÓÃ»§Ãû´íÎó£¡"),QMessageBox::Yes);
+            QMessageBox::critical(this,tr("Error"),QString::fromLocal8Bit("ÓÃ»§Ãû´íÎó£¡"),QMessageBox::Yes);
             ui->userName->clear();
             ui->password->clear();
             ui->userName->setFocus();

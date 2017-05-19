@@ -1,17 +1,19 @@
 #include "functions.h"
 #include <cstring>
 
-void appendEnter(char * Source)
+char * appendEnter(char * Source)
 {
     strcpy(CEnter,Source);
     int i=strlen(CEnter);
     CEnter[i]='\n';
     CEnter[i+1]='\0';
+    return CEnter;
 }
 
-void removeEnter(char * Source)
+char * removeEnter(char * Source)
 {
     strcpy(CEnter,Source);
     int i=strlen(CEnter);
     CEnter[i-1]='\0';
+    return CEnter;
 }

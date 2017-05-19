@@ -9,7 +9,6 @@ int main(int argc, char *argv[])
     login L;
     while(QDialog::Accepted==L.exec())
     {
-
         MainWindow w;
         w.show();
         a.exec();

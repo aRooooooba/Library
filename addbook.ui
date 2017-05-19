@@ -20,13 +20,13 @@
    <string>添加新书</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border-image: url(:/addBook_bg.png);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLineEdit" name="name">
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>220</y>
+     <y>190</y>
      <width>291</width>
      <height>41</height>
     </rect>
@@ -41,7 +41,7 @@
     <string>请输入书名</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -54,7 +54,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>270</y>
+     <y>250</y>
      <width>291</width>
      <height>41</height>
     </rect>
@@ -69,7 +69,7 @@
     <string>请输入作者名</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="placeholderText">
     <string>作者</string>
@@ -79,7 +79,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>320</y>
+     <y>310</y>
      <width>291</width>
      <height>41</height>
     </rect>
@@ -94,7 +94,7 @@
     <string>请输入出版社名</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="placeholderText">
     <string>出版社</string>
@@ -123,7 +123,7 @@
     <string>请选择权限</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>任何人可以借阅</string>
@@ -148,7 +148,7 @@
     <string>请选择权限</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>仅教师可借</string>
@@ -173,7 +173,7 @@
     <string>请输入简介或评价</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="html">
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -190,7 +190,7 @@ p, li { white-space: pre-wrap; }
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>380</y>
+     <y>370</y>
      <width>191</width>
      <height>31</height>
     </rect>
@@ -205,7 +205,7 @@ p, li { white-space: pre-wrap; }
     <string>请输入该书数量</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -227,11 +227,13 @@ p, li { white-space: pre-wrap; }
     <string>确认</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();
-border-image: url(:/ensured.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="cancel">
@@ -247,13 +249,75 @@ border-image: url(:/ensured.png);</string>
     <string>取消</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: \*url();
-border-image: url(:/cancel.png);</string>
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>441</width>
+     <height>731</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/addBook_bg.png);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>630</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/ensured.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>630</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/cancel.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>name</zorder>
+  <zorder>author</zorder>
+  <zorder>publisher</zorder>
+  <zorder>student</zorder>
+  <zorder>teacher</zorder>
+  <zorder>description</zorder>
+  <zorder>number</zorder>
+  <zorder>label_2</zorder>
+  <zorder>ensured</zorder>
+  <zorder>label_3</zorder>
+  <zorder>cancel</zorder>
  </widget>
  <resources/>
  <connections/>
