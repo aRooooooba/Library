@@ -12,9 +12,10 @@ login::login(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window|Qt::FramelessWindowHint |Qt::WindowSystemMenuHint|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint);
+    loadTime();
     loadBook();
     loadPeople();
-    loadTime();
+    savePeople(0);
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
     begin=startTimer(1000);
 }
@@ -29,7 +30,10 @@ void login::timerEvent(QTimerEvent *event)
     if(ui->password->hasFocus())
         stopTimer=1;
     if(event->timerId()==begin&&!stopTimer)
+    {
+        oneDayNewBook=1;
         dateCalculator();
+    }
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
 }
 

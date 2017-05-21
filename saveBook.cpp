@@ -19,19 +19,19 @@ void saveBook(int chooseFree)
 		fputs(bpointer1->publisher,bookFile);
 		for(int i=0;i<2;i++)
 			fprintf(bookFile,"%d ",bpointer1->boughtTime[i]);
-		fprintf(bookFile,"%d\n%d\n",bpointer1->boughtTime[2],bpointer1->number);
+        fprintf(bookFile,"%d\n",bpointer1->boughtTime[2]);
+        for(int i=0;i<2;i++)
+            fprintf(bookFile,"%d ",bpointer1->returnTime[i]);
+        fprintf(bookFile,"%d\n%d\n",bpointer1->returnTime[2],bpointer1->number);
 		fputs(bpointer1->description,bookFile);
-        fprintf(bookFile,"%d %d ",bpointer1->limit,bpointer1->isBorrowed);
+        fprintf(bookFile,"%d %d\n",bpointer1->limit,bpointer1->isBorrowed);
         if(bpointer1->isBorrowed)
-            fprintf(bookFile,"%d ",bpointer1->borrower);
+            fprintf(bookFile,"%d\n",bpointer1->borrower);
         fprintf(bookFile,"%d\n",bpointer1->reserveNumber);
-        if(bpointer1->reserveNumber)
-		{
-			for(int i=0;i<bpointer1->reserveNumber;i++)
-				fprintf(bookFile,"%d\n",bpointer1->reserveQueue.base[(bpointer1->reserveQueue.front+i)%MAXRNUM]);
-            if(1==chooseFree)
-                free(bpointer1->reserveQueue.base);
-		}
+        for(int i=0;i<bpointer1->reserveNumber;i++)
+            fprintf(bookFile,"%d\n",bpointer1->reserveQueue.base[(bpointer1->reserveQueue.front+i)%MAXRNUM]);
+        if(1==chooseFree)
+            free(bpointer1->reserveQueue.base);
         bpointer2=bpointer1->nextBook;
         if(1==chooseFree)
             free(bpointer1);

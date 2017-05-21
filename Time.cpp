@@ -48,3 +48,23 @@ void dateCalculator()
         }
     }
 }
+
+int GetAbsDays(int year,int month,int day)
+{
+    int i;
+    int month_day[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+    int years=year-1;	//因为欲求距离1年1月1日的距离
+    int days=years*365+years/4-years/100+years/400;	//求得之前闰年的数量并在天数上进行想加
+    if(year%4==0&&year%100!=0||year%400==0)
+        month_day[1]++;	//当前年为闰年，二月加1
+    for(i=0;i<month-1;i++)
+        days+=month_day[i];
+    days+=day-1;	//今天应该是不算如天数计数
+    return days;
+}
+
+int GetDiffDays(int year1,int month1,int day1,int year2,int month2,int day2)
+{
+    return GetAbsDays(year1,month1,day1)-GetAbsDays(year2,month2,day2);
+}
+

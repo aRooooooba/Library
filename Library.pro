@@ -25,7 +25,9 @@ SOURCES += main.cpp\
     Queue.cpp \
     Time.cpp \
     copyInfo.cpp \
-    Enter.cpp
+    Enter.cpp \
+    getFirstLetter.cpp \
+    Search.cpp
 
 HEADERS  += mainwindow.h \
     login.h \

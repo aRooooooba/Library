@@ -15,6 +15,11 @@ public:
     explicit addBook(QWidget *parent = 0);
     ~addBook();
 
+private slots:
+    void on_ensured_clicked();
+
+    void on_cancel_clicked();
+
 private:
     Ui::addBook *ui;
 };

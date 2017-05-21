@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1031</width>
-    <height>1213</height>
+    <height>631</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,34 +70,12 @@
     <property name="title">
      <string>操作</string>
     </property>
-    <widget class="QPushButton" name="editLimit">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>210</y>
-       <width>21</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>修改本书权限</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="borrow">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>400</y>
-       <width>61</width>
+       <x>90</x>
+       <y>430</y>
+       <width>101</width>
        <height>28</height>
       </rect>
      </property>
@@ -131,7 +109,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>370</y>
+       <y>400</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -147,7 +125,7 @@
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>440</y>
+       <y>430</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -178,7 +156,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>370</y>
+       <y>400</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -244,19 +222,6 @@
       <string>借阅者</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="noReserve">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>400</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>取消预约</string>
-     </property>
-    </widget>
     <widget class="QTextEdit" name="description">
      <property name="geometry">
       <rect>
@@ -283,6 +248,9 @@
       <font>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QLineEdit" name="publisher">
@@ -395,19 +363,6 @@
       <string>权限</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="return_2">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>400</y>
-       <width>61</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>还书</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="bookID_L">
      <property name="enabled">
       <bool>true</bool>
@@ -432,36 +387,14 @@
     <widget class="QPushButton" name="cancel">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>440</y>
+       <x>160</x>
+       <y>430</y>
        <width>93</width>
        <height>28</height>
       </rect>
      </property>
      <property name="text">
       <string>取消</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="borrowerInformation">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>340</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>查看借阅者信息</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="number">
@@ -540,11 +473,103 @@
       <string>购入日期</string>
      </property>
     </widget>
+    <widget class="QLabel" name="editLimit_bg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>210</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/editLimit.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="borrowerInformation_bg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>340</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Detail.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="reserverInformation_bg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>400</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Information.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="editLimit">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>210</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>修改本书权限</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="borrowerInformation">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>340</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>查看借阅者信息</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
     <widget class="QPushButton" name="reserverInformation">
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>370</y>
+       <y>400</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -562,58 +587,85 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLineEdit" name="returnTime">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>210</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-image: url(:/editLimit.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>340</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-image: url(:/Detail.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
+       <x>100</x>
        <y>370</y>
-       <width>21</width>
+       <width>141</width>
        <height>21</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">border-image: url(:/Information.png);</string>
-     </property>
-     <property name="text">
-      <string/>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
-    <zorder>label_10</zorder>
-    <zorder>label_8</zorder>
-    <zorder>label_7</zorder>
-    <zorder>borrow</zorder>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>370</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>归还时间</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="return_2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>430</y>
+       <width>101</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>还书</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="noReserve">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>430</y>
+       <width>101</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>取消预约</string>
+     </property>
+    </widget>
+    <zorder>reserverInformation_bg</zorder>
+    <zorder>borrowerInformation_bg</zorder>
+    <zorder>editLimit_bg</zorder>
     <zorder>bookID</zorder>
     <zorder>reserverNumber</zorder>
     <zorder>ensured</zorder>
@@ -622,7 +674,6 @@
     <zorder>boughtTime</zorder>
     <zorder>limit</zorder>
     <zorder>borrower_L</zorder>
-    <zorder>noReserve</zorder>
     <zorder>description</zorder>
     <zorder>bookName</zorder>
     <zorder>publisher</zorder>
@@ -631,16 +682,20 @@
     <zorder>publisher_L</zorder>
     <zorder>author_L</zorder>
     <zorder>limit_L</zorder>
-    <zorder>return_2</zorder>
     <zorder>bookID_L</zorder>
     <zorder>cancel</zorder>
     <zorder>number</zorder>
     <zorder>number_L</zorder>
     <zorder>borrower</zorder>
     <zorder>boughtTime_L</zorder>
-    <zorder>reserverInformation</zorder>
     <zorder>editLimit</zorder>
     <zorder>borrowerInformation</zorder>
+    <zorder>reserverInformation</zorder>
+    <zorder>returnTime</zorder>
+    <zorder>label_3</zorder>
+    <zorder>borrow</zorder>
+    <zorder>return_2</zorder>
+    <zorder>noReserve</zorder>
    </widget>
    <widget class="QGroupBox" name="alerts">
     <property name="geometry">
@@ -685,7 +740,7 @@
     <property name="geometry">
      <rect>
       <x>220</x>
-      <y>140</y>
+      <y>120</y>
       <width>481</width>
       <height>421</height>
      </rect>
@@ -790,7 +845,7 @@
      </font>
     </property>
     <property name="toolTip">
-     <string>请输入查询关键字</string>
+     <string>请输入查询关键字（查询职业时，0为学生，1为教师）</string>
     </property>
     <property name="text">
      <string/>
@@ -822,7 +877,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>30</y>
+      <y>70</y>
       <width>87</width>
       <height>31</height>
      </rect>
@@ -860,8 +915,8 @@
    <widget class="QGroupBox" name="personOperation">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>590</y>
+      <x>730</x>
+      <y>90</y>
       <width>281</width>
       <height>471</height>
      </rect>
@@ -875,36 +930,14 @@
     <property name="title">
      <string>操作</string>
     </property>
-    <widget class="QPushButton" name="reservedInformation">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>380</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>查看预约书籍信息</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="personName">
      <property name="enabled">
       <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>30</y>
+       <x>100</x>
+       <y>50</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -919,8 +952,8 @@
     <widget class="QLineEdit" name="password">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>230</y>
+       <x>100</x>
+       <y>250</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -938,8 +971,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>380</y>
+       <x>100</x>
+       <y>420</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -954,8 +987,8 @@
     <widget class="QLabel" name="personName_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>30</y>
+       <x>20</x>
+       <y>50</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -976,8 +1009,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>130</y>
+       <x>100</x>
+       <y>150</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -992,8 +1025,8 @@
     <widget class="QLabel" name="password_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>230</y>
+       <x>20</x>
+       <y>250</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1011,8 +1044,8 @@
     <widget class="QLabel" name="reserveNumber_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>380</y>
+       <x>20</x>
+       <y>420</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -1030,8 +1063,8 @@
     <widget class="QLabel" name="academy_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>180</y>
+       <x>20</x>
+       <y>200</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1049,8 +1082,8 @@
     <widget class="QLabel" name="job_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>130</y>
+       <x>20</x>
+       <y>150</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1068,8 +1101,8 @@
     <widget class="QLabel" name="personID_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>80</y>
+       <x>20</x>
+       <y>100</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1090,8 +1123,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>180</y>
+       <x>100</x>
+       <y>200</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -1106,8 +1139,8 @@
     <widget class="QLabel" name="credit_L">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>280</y>
+       <x>20</x>
+       <y>300</y>
        <width>31</width>
        <height>21</height>
       </rect>
@@ -1128,8 +1161,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>280</y>
+       <x>100</x>
+       <y>300</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -1147,8 +1180,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>330</y>
+       <x>100</x>
+       <y>360</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -1160,11 +1193,97 @@
       </font>
      </property>
     </widget>
+    <widget class="QLineEdit" name="personID">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>100</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLabel" name="borrowNumber_L">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>360</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>借书数量</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="borrowedInformation_bg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>360</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Detail.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="reservedInformation_bg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>420</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/Information.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="editPassword_bg">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>250</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/editPassword.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <widget class="QPushButton" name="borrowedInformation">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>330</y>
+       <x>240</x>
+       <y>360</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1185,8 +1304,8 @@
     <widget class="QPushButton" name="editPassword">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>230</y>
+       <x>240</x>
+       <y>250</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1204,96 +1323,31 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="personID">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
+    <widget class="QPushButton" name="reservedInformation">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>80</y>
-       <width>161</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Adobe Arabic</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-    </widget>
-    <widget class="QLabel" name="borrowNumber_L">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>330</y>
-       <width>71</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Adobe Arabic</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>借书数量</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>330</y>
+       <x>240</x>
+       <y>420</y>
        <width>21</width>
        <height>21</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string>查看预约书籍信息</string>
+     </property>
      <property name="styleSheet">
-      <string notr="true">border-image: url(:/Detail.png);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>380</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-image: url(:/Information.png);</string>
-     </property>
-     <property name="text">
-      <string/>
+     <property name="flat">
+      <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>230</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-image: url(:/editPassword.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <zorder>label_12</zorder>
-    <zorder>label_11</zorder>
-    <zorder>label_9</zorder>
-    <zorder>reservedInformation</zorder>
+    <zorder>editPassword_bg</zorder>
+    <zorder>reservedInformation_bg</zorder>
+    <zorder>borrowedInformation_bg</zorder>
     <zorder>personName</zorder>
     <zorder>password</zorder>
     <zorder>reserveNumber</zorder>
@@ -1308,10 +1362,11 @@
     <zorder>credit_L</zorder>
     <zorder>credit</zorder>
     <zorder>borrowNumber</zorder>
-    <zorder>editPassword</zorder>
     <zorder>personID</zorder>
     <zorder>borrowNumber_L</zorder>
     <zorder>borrowedInformation</zorder>
+    <zorder>editPassword</zorder>
+    <zorder>reservedInformation</zorder>
    </widget>
    <widget class="QLineEdit" name="date">
     <property name="enabled">
@@ -1516,8 +1571,8 @@
    <widget class="QLabel" name="myInformation_bg">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>580</y>
+      <x>770</x>
+      <y>10</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -1532,8 +1587,8 @@
    <widget class="QPushButton" name="myInformation">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>580</y>
+      <x>770</x>
+      <y>10</y>
       <width>61</width>
       <height>61</height>
      </rect>

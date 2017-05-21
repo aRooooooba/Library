@@ -24,6 +24,8 @@ void loadBook()
 		fgets(bpointer2->publisher,160,bookFile);
 		for(int i=0;i<3;i++)
 			fscanf(bookFile,"%d",&bpointer2->boughtTime[i]);
+        for(int i=0;i<3;i++)
+            fscanf(bookFile,"%d",&bpointer2->returnTime[i]);
 		fscanf(bookFile,"%d",&bpointer2->number);
 		fgetc(bookFile);
 		fgets(bpointer2->description,480,bookFile);
@@ -31,17 +33,16 @@ void loadBook()
 		fscanf(bookFile,"%d",&bpointer2->isBorrowed);
         if(bpointer2->isBorrowed)
             fscanf(bookFile,"%d",&bpointer2->borrower);
-		fscanf(bookFile,"%d",&bpointer2->reserveNumber);
-        if(bpointer2->reserveNumber)
-		{
-            initQueue(&bpointer2->reserveQueue);
-			int reserveid;
-			for(int i=0;i<bpointer2->reserveNumber;i++)
-			{
-				fscanf(bookFile,"%d",&reserveid);
-				enQueue(&bpointer2->reserveQueue,reserveid);
-			}
-		}
+        else
+            bpointer2->borrower=0;
+        fscanf(bookFile,"%d",&bpointer2->reserveNumber);
+        initQueue(&bpointer2->reserveQueue);
+        int reserveid;
+        for(int i=0;i<bpointer2->reserveNumber;i++)
+        {
+            fscanf(bookFile,"%d",&reserveid);
+            enQueue(&bpointer2->reserveQueue,reserveid);
+        }
 		bpointer1->nextBook=bpointer2;
 		bpointer1=bpointer2;
 		bpointer2=(bookNode)malloc(sizeof(book));

@@ -8,6 +8,7 @@
 #include <QMessageBox>
 
 personNode ppointer=NULL;
+int addedP;
 
 addPeople::addPeople(QWidget *parent) :
     QDialog(parent),
@@ -17,6 +18,7 @@ addPeople::addPeople(QWidget *parent) :
     this->setFixedSize(360,585);
     ppointer=(personNode)malloc(sizeof(person));
     ppointer->nextPerson=NULL;
+    addedP=0;
 }
 
 addPeople::~addPeople()
@@ -40,13 +42,14 @@ void addPeople::on_teacher_clicked()
 void addPeople::on_cancel_clicked()
 {
     free(ppointer);
-    reject();
+    if(addedP)
+        accept();
+    else
+        reject();
 }
 
 void addPeople::on_ensured_clicked()
 {
-    QByteArray T;
-    char * C;
     if(ui->name->text().isEmpty())
     {
         ui->name->setFocus();
@@ -85,6 +88,8 @@ void addPeople::on_ensured_clicked()
     }
     else
     {
+        QByteArray T;
+        char * C;
         T=ui->name->text().toLocal8Bit();
         C=T.data();
         strcpy(ppointer->name,appendEnter(C));
@@ -123,8 +128,10 @@ void addPeople::on_ensured_clicked()
                     C=T.data();
                     if(0==strcmp("user",C))
                     {
+                        addedP=1;
                         peopleTail->nextPerson=ppointer;
                         peopleTail=ppointer;
+                        peopleNUM++;
                         accept();
                     }
                     else
@@ -133,23 +140,23 @@ void addPeople::on_ensured_clicked()
             }
             else
             {
+                addedP=1;
                 peopleTail->nextPerson=ppointer;
                 peopleTail=ppointer;
-                ppointer=(personNode)malloc(sizeof(person));
-                ppointer->nextPerson=NULL;
+                peopleNUM++;
                 if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("ÊÇ·ñ¼ÌÐøÌí¼Ó£¿"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
                 {
+                    ppointer=(personNode)malloc(sizeof(person));
+                    ppointer->nextPerson=NULL;
                     ui->name->clear();
                     ui->ID->clear();
                     ui->password->clear();
                     ui->password_2->clear();
                     ui->academy->clear();
+                    ui->name->setFocus();
                 }
                 else
-                {
-                    free(ppointer);
                     accept();
-                }
             }
         }
     }

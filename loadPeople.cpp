@@ -24,44 +24,45 @@ void loadPeople()
         fgetc(peopleFile);
 		if(student==ppointer2->job)
 			fgets(ppointer2->academy,240,peopleFile);
-		fscanf(peopleFile,"%d%d",&ppointer2->credit,&ppointer2->borrowNumber);
-        if(ppointer2->borrowNumber)
-		{
-            borrowedBookNode bpointer1=NULL,bpointer2=NULL;
-			ppointer2->bookBorrowed=(borrowedBookNode)malloc(sizeof(borrowedBook));
-			ppointer2->bookBorrowed->nextBB=NULL;
-			bpointer1=ppointer2->bookBorrowed;
-			for(int i=0;i<ppointer2->borrowNumber;i++)
-			{
-				bpointer2=(borrowedBookNode)malloc(sizeof(borrowedBook));
-				for(int j=0;j<16;j++)
-                    bpointer2->id[j]=fgetc(peopleFile);
-				for(int j=0;j<3;j++)
-					fscanf(peopleFile,"%d",&bpointer2->returnTime[j]);
-				bpointer2->nextBB=NULL;
-				bpointer1->nextBB=bpointer2;
-				bpointer1=bpointer2;
-			}
-			ppointer2->borrowedBTail=bpointer1;
-		}
-		fscanf(peopleFile,"%d",&ppointer2->reserveNumber);
-		if(0!=ppointer2->reserveNumber)
-		{
-            borrowedBookNode bpointer1=NULL,bpointer2=NULL;
-			ppointer2->bookReserved=(borrowedBookNode)malloc(sizeof(borrowedBook));
-			ppointer2->bookReserved->nextBB=NULL;
-			bpointer1=ppointer2->bookReserved;
-			for(int i=0;i<ppointer2->reserveNumber;i++)
-			{
-				bpointer2=(borrowedBookNode)malloc(sizeof(borrowedBook));
-				for(int j=0;j<16;j++)
-                    bpointer2->id[j]=fgetc(peopleFile);
-				bpointer2->nextBB=NULL;
-				bpointer1->nextBB=bpointer2;
-				bpointer1=bpointer2;
-			}
-			ppointer2->reservedBTail=bpointer1;
+        else
+            ppointer2->academy[0]='\0';
+        fscanf(peopleFile,"%d%d",&ppointer2->credit,&ppointer2->borrowNumber);
+        borrowedBookNode bpointer1=NULL,bpointer2=NULL;
+        ppointer2->bookBorrowed=(borrowedBookNode)malloc(sizeof(borrowedBook));
+        ppointer2->bookBorrowed->nextBB=NULL;
+        bpointer1=ppointer2->bookBorrowed;
+        for(int i=0;i<ppointer2->borrowNumber;i++)
+        {
+            fgetc(peopleFile);
+            bpointer2=(borrowedBookNode)malloc(sizeof(borrowedBook));
+            bpointer2->nextBB=NULL;
+            fgets(bpointer2->id,17,peopleFile);
+            bpointer2->id[16]='\0';
+            for(int j=0;j<3;j++)
+                fscanf(peopleFile,"%d",&bpointer2->returnTime[j]);
+            int diffDays=GetDiffDays(date->year,date->month,date->day,bpointer2->returnTime[0],bpointer2->returnTime[1],bpointer2->returnTime[2]);
+            if(diffDays>0)
+                ppointer2->credit-=diffDays;
+            bpointer1->nextBB=bpointer2;
+            bpointer1=bpointer2;
         }
+        ppointer2->borrowedBTail=bpointer1;
+        fscanf(peopleFile,"%d",&ppointer2->reserveNumber);
+        bpointer1=NULL,bpointer2=NULL;
+        ppointer2->bookReserved=(borrowedBookNode)malloc(sizeof(borrowedBook));
+        ppointer2->bookReserved->nextBB=NULL;
+        bpointer1=ppointer2->bookReserved;
+        for(int i=0;i<ppointer2->reserveNumber;i++)
+        {
+            fgetc(peopleFile);
+            bpointer2=(borrowedBookNode)malloc(sizeof(borrowedBook));
+            bpointer2->nextBB=NULL;
+            fgets(bpointer2->id,17,peopleFile);
+            bpointer2->id[16]='\0';
+            bpointer1->nextBB=bpointer2;
+            bpointer1=bpointer2;
+        }
+        ppointer2->reservedBTail=bpointer1;
         ppointer1->nextPerson=ppointer2;
         ppointer1=ppointer2;
 		ppointer2=(personNode)malloc(sizeof(person));
