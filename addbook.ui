@@ -319,6 +319,17 @@ p, li { white-space: pre-wrap; }
   <zorder>label_3</zorder>
   <zorder>cancel</zorder>
  </widget>
+ <tabstops>
+  <tabstop>name</tabstop>
+  <tabstop>author</tabstop>
+  <tabstop>publisher</tabstop>
+  <tabstop>number</tabstop>
+  <tabstop>student</tabstop>
+  <tabstop>teacher</tabstop>
+  <tabstop>description</tabstop>
+  <tabstop>ensured</tabstop>
+  <tabstop>cancel</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

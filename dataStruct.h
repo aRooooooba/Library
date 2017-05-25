@@ -60,5 +60,26 @@ typedef struct timeType
     int day;
 }* time;
 
+typedef struct borrowerWarningType
+{
+    int personID;
+    char personName[16*4];
+    int job;
+    char bookID[17];
+    char bookName[16*20];
+    int diffDays;
+    struct borrowerWarningType * nextWarningBorrower;
+}borrowerWarningList,* borrowerWarningNode;
+
+typedef struct reserverAlertType
+{
+    int personID;
+    char personName[16*4];
+    int job;
+    char bookID[17];
+    char bookName[16*20];
+    struct reserverAlertType * nextAlertReserver;
+}reserverAlertList,* reserverAlertNode;
+
 #endif	//DATASTRUCT_H
 

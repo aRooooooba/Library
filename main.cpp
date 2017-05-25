@@ -6,6 +6,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    warningBorrower->nextWarningBorrower=NULL;
+    alertReserver->nextAlertReserver=NULL;
     login L;
     while(QDialog::Accepted==L.exec())
     {

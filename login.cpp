@@ -15,9 +15,10 @@ login::login(QWidget *parent) :
     loadTime();
     loadBook();
     loadPeople();
+    saveBook(0);
     savePeople(0);
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
-    begin=startTimer(1000);
+    begin=startTimer(5000);
 }
 
 login::~login()
@@ -27,12 +28,14 @@ login::~login()
 
 void login::timerEvent(QTimerEvent *event)
 {
-    if(ui->password->hasFocus())
-        stopTimer=1;
     if(event->timerId()==begin&&!stopTimer)
     {
         oneDayNewBook=1;
         dateCalculator();
+        loadBook();
+        loadPeople();
+        saveBook(0);
+        savePeople(0);
     }
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
 }
@@ -57,7 +60,6 @@ void login::on_register_2_clicked()
 
 void login::on_enter_clicked()
 {
-    stopTimer=0;
     if("user"==ui->userName->text()&&"user"==ui->password->text())
     {
         stopTimer=1;

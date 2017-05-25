@@ -106,6 +106,7 @@ void addBook::on_ensured_clicked()
         bpointer->isBorrowed=0;
         bpointer->borrower=0;
         bpointer->reserveNumber=0;
+        initQueue(&bpointer->reserveQueue);
         bookTail->nextBook=bpointer;
         bookTail=bpointer;
         bookNUM++;
@@ -122,7 +123,7 @@ void addBook::on_ensured_clicked()
             bookNUM++;
             oneDayNewBook++;
         }
-        if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("是否继续添加？"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
+        if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("添加成功！是否继续添加？"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
         {
             bpointer=(bookNode)malloc(sizeof(book));
             bpointer->nextBook=NULL;

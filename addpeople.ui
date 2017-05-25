@@ -308,6 +308,17 @@
   <zorder>label_3</zorder>
   <zorder>cancel</zorder>
  </widget>
+ <tabstops>
+  <tabstop>name</tabstop>
+  <tabstop>student</tabstop>
+  <tabstop>teacher</tabstop>
+  <tabstop>ID</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>password_2</tabstop>
+  <tabstop>academy</tabstop>
+  <tabstop>ensured</tabstop>
+  <tabstop>cancel</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

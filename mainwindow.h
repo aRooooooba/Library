@@ -20,6 +20,7 @@ public:
     void initBookInformation();
     void initPeopleList();
     void initBookList();
+    void initWarningList();
     ~MainWindow();
 
 private slots:
@@ -76,6 +77,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QSignalMapper *signalMapper;
+
+protected:
+    void timerEvent(QTimerEvent * event);
+    int refresh;
 };
 
 #endif // MAINWINDOW_H

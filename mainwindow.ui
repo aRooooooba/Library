@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1031</width>
-    <height>631</height>
+    <height>639</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,19 +70,6 @@
     <property name="title">
      <string>操作</string>
     </property>
-    <widget class="QPushButton" name="borrow">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>430</y>
-       <width>101</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>借书</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="bookID">
      <property name="enabled">
       <bool>false</bool>
@@ -124,7 +111,7 @@
     <widget class="QPushButton" name="ensured">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>30</x>
        <y>430</y>
        <width>93</width>
        <height>28</height>
@@ -387,7 +374,7 @@
     <widget class="QPushButton" name="cancel">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>150</x>
        <y>430</y>
        <width>93</width>
        <height>28</height>
@@ -644,6 +631,19 @@
       <string>还书</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="borrow">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>430</y>
+       <width>101</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>借书</string>
+     </property>
+    </widget>
     <widget class="QPushButton" name="noReserve">
      <property name="geometry">
       <rect>
@@ -693,8 +693,8 @@
     <zorder>reserverInformation</zorder>
     <zorder>returnTime</zorder>
     <zorder>label_3</zorder>
-    <zorder>borrow</zorder>
     <zorder>return_2</zorder>
+    <zorder>borrow</zorder>
     <zorder>noReserve</zorder>
    </widget>
    <widget class="QGroupBox" name="alerts">
@@ -719,20 +719,65 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>90</y>
        <width>151</width>
-       <height>171</height>
+       <height>121</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="reserveReminder">
+    <widget class="QTextEdit" name="reserveAlert">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>230</y>
+       <y>290</y>
        <width>151</width>
-       <height>181</height>
+       <height>121</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>借书到期警告</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>预约可用提醒</string>
      </property>
     </widget>
    </widget>
@@ -915,8 +960,8 @@
    <widget class="QGroupBox" name="personOperation">
     <property name="geometry">
      <rect>
-      <x>730</x>
-      <y>90</y>
+      <x>360</x>
+      <y>140</y>
       <width>281</width>
       <height>471</height>
      </rect>
@@ -1603,6 +1648,23 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1031</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
    <zorder>label_2</zorder>
    <zorder>model</zorder>
    <zorder>welcome</zorder>
@@ -1650,6 +1712,52 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>keyWords</tabstop>
+  <tabstop>bookName</tabstop>
+  <tabstop>author</tabstop>
+  <tabstop>publisher</tabstop>
+  <tabstop>description</tabstop>
+  <tabstop>ensured</tabstop>
+  <tabstop>cancel</tabstop>
+  <tabstop>boughtTime</tabstop>
+  <tabstop>limit</tabstop>
+  <tabstop>reserverNumber</tabstop>
+  <tabstop>number</tabstop>
+  <tabstop>borrower</tabstop>
+  <tabstop>editLimit</tabstop>
+  <tabstop>borrowerInformation</tabstop>
+  <tabstop>reserverInformation</tabstop>
+  <tabstop>returnTime</tabstop>
+  <tabstop>return_2</tabstop>
+  <tabstop>borrow</tabstop>
+  <tabstop>noReserve</tabstop>
+  <tabstop>borrowWarning</tabstop>
+  <tabstop>reserveAlert</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>allPeople</tabstop>
+  <tabstop>allBook</tabstop>
+  <tabstop>bookScope</tabstop>
+  <tabstop>bookID</tabstop>
+  <tabstop>search</tabstop>
+  <tabstop>peopelScope</tabstop>
+  <tabstop>personName</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>reserveNumber</tabstop>
+  <tabstop>job</tabstop>
+  <tabstop>academy</tabstop>
+  <tabstop>credit</tabstop>
+  <tabstop>borrowNumber</tabstop>
+  <tabstop>personID</tabstop>
+  <tabstop>borrowedInformation</tabstop>
+  <tabstop>editPassword</tabstop>
+  <tabstop>reservedInformation</tabstop>
+  <tabstop>date</tabstop>
+  <tabstop>addBook</tabstop>
+  <tabstop>addPeople</tabstop>
+  <tabstop>logout</tabstop>
+  <tabstop>myInformation</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

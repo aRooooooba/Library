@@ -23,7 +23,9 @@ int searchBook(bookNode &searchBHead,int index,char input[]);
 
 extern personNode peopleHead,peopleTail,attentionP;
 extern bookNode bookHead,bookTail,attentionB;
-extern int teacher,student,theUser,reader,administrator,bookNUM,peopleNUM,MAXRNUM,stopTimer,oneDayNewBook;
+extern borrowerWarningNode warningBorrower;
+extern reserverAlertNode alertReserver;
+extern int teacher,student,theUser,reader,administrator,bookNUM,peopleNUM,MAXRNUM,stopTimer,oneDayNewBook,BWNUM,RANUM;
 extern time date;
 extern char CEnter[500];
 

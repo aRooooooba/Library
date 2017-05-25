@@ -115,8 +115,12 @@ void addPeople::on_ensured_clicked()
             }
             ppointer->credit=100;
             ppointer->borrowNumber=0;
+            ppointer->bookBorrowed=(borrowedBookNode)malloc(sizeof(borrowedBook));
+            ppointer->bookBorrowed->nextBB=NULL;
             ppointer->borrowedBTail=NULL;
             ppointer->reserveNumber=0;
+            ppointer->bookReserved=(borrowedBookNode)malloc(sizeof(borrowedBook));
+            ppointer->bookReserved->nextBB=NULL;
             ppointer->reservedBTail=NULL;
             if(reader==theUser)
             {
@@ -144,7 +148,7 @@ void addPeople::on_ensured_clicked()
                 peopleTail->nextPerson=ppointer;
                 peopleTail=ppointer;
                 peopleNUM++;
-                if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("是否继续添加？"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
+                if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("添加成功！是否继续添加？"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
                 {
                     ppointer=(personNode)malloc(sizeof(person));
                     ppointer->nextPerson=NULL;
