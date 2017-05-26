@@ -20,6 +20,7 @@ char * removeEnter(char * Source);
 int getFirstLetter(char * strName);
 int searchPeople(personNode &searchPHead,int index,char input[]);
 int searchBook(bookNode &searchBHead,int index,char input[]);
+void WarnAlert();
 
 extern personNode peopleHead,peopleTail,attentionP;
 extern bookNode bookHead,bookTail,attentionB;

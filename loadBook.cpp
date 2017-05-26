@@ -44,18 +44,6 @@ void loadBook()
             fscanf(bookFile,"%d",&reserveid);
             enQueue(&bpointer2->reserveQueue,reserveid);
         }
-        if(0<bpointer2->reserveNumber&&0==bpointer2->isBorrowed)
-        {
-            int diffDay=GetDiffDays(date->year,date->month,date->day,bpointer2->returnTime[0],bpointer2->returnTime[1],bpointer2->returnTime[2]);
-            if(2==diffDay)
-            {
-                bpointer2->reserveNumber--;
-                bpointer2->reserveQueue.front=(bpointer2->reserveQueue.front+1)%MAXRNUM;
-                bpointer2->returnTime[0]=date->year;
-                bpointer2->returnTime[1]=date->month;
-                bpointer2->returnTime[2]=date->day;
-            }
-        }
 		bpointer1->nextBook=bpointer2;
 		bpointer1=bpointer2;
 		bpointer2=(bookNode)malloc(sizeof(book));

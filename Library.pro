@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     copyInfo.cpp \
     Enter.cpp \
     getFirstLetter.cpp \
-    Search.cpp
+    Search.cpp \
+    WarnAlert.cpp
 
 HEADERS  += mainwindow.h \
     login.h \

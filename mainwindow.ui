@@ -960,8 +960,8 @@
    <widget class="QGroupBox" name="personOperation">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>140</y>
+      <x>730</x>
+      <y>90</y>
       <width>281</width>
       <height>471</height>
      </rect>

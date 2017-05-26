@@ -15,6 +15,7 @@ login::login(QWidget *parent) :
     loadTime();
     loadBook();
     loadPeople();
+    WarnAlert();
     saveBook(0);
     savePeople(0);
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
@@ -32,8 +33,7 @@ void login::timerEvent(QTimerEvent *event)
     {
         oneDayNewBook=1;
         dateCalculator();
-        loadBook();
-        loadPeople();
+        WarnAlert();
         saveBook(0);
         savePeople(0);
     }

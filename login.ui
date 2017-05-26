@@ -89,11 +89,7 @@
     <string>进入图书馆</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-
-
-
-</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -267,6 +263,14 @@
   <zorder>label_4</zorder>
   <zorder>exit</zorder>
  </widget>
+ <tabstops>
+  <tabstop>userName</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>enter</tabstop>
+  <tabstop>register_2</tabstop>
+  <tabstop>exit</tabstop>
+  <tabstop>date</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -401,9 +401,9 @@ void MainWindow::initWarningList()
                 warnList.append(QString::fromLocal8Bit("》(ID:"));
                 warnList.append(QString::fromLocal8Bit(BWpointer->bookID));
                 if(0>BWpointer->diffDays)
-                    warnList.append(QString::fromLocal8Bit(")已经过期，请尽快归还！"));
-                else
                     warnList.append(QString::fromLocal8Bit(")即将过期，请尽快归还！"));
+                else
+                    warnList.append(QString::fromLocal8Bit(")已经过期，请尽快归还！"));
             }
         }
         if(RANUM)
@@ -436,16 +436,16 @@ void MainWindow::initWarningList()
             warnList.append(QString::fromLocal8Bit("》(ID:"));
             warnList.append(QString::fromLocal8Bit(BWpointer->bookID));
             if(0>BWpointer->diffDays)
-                warnList.append(QString::fromLocal8Bit(")已经过期，请提醒归还！"));
-            else
                 warnList.append(QString::fromLocal8Bit(")即将过期，请提醒归还！"));
+            else
+                warnList.append(QString::fromLocal8Bit(")已经过期，请提醒归还！"));
         }
         if(RANUM)
         {
             alertList=QString::fromLocal8Bit(RApointer->personName);
             alertList.append(QString::fromLocal8Bit("(ID:"));
             alertList.append(QString::fromLocal8Bit(RApointer->bookID));
-            alertList=QString::fromLocal8Bit(")预约的书《");
+            alertList.append(QString::fromLocal8Bit(")预约的书《"));
             alertList.append(QString::fromLocal8Bit(RApointer->bookName));
             alertList.append(QString::fromLocal8Bit("》(ID:"));
             alertList.append(QString::fromLocal8Bit(RApointer->bookID));
@@ -598,6 +598,8 @@ void MainWindow::on_borrow_clicked()
             initBookList();
         }
     }
+    else if(attentionB->limit>attentionP->job)
+        QMessageBox::critical(this,tr("Error"),QString::fromLocal8Bit("权限不足！"),QMessageBox::Yes);
     else if(attentionP->borrowNumber>attentionP->credit/25)
         QMessageBox::critical(this,tr("Error"),QString::fromLocal8Bit("信用不足！"),QMessageBox::Yes);
     else if(0<attentionB->reserveNumber&&attentionB->reserveQueue.base[attentionB->reserveQueue.front]!=attentionP->id)
@@ -656,7 +658,7 @@ void MainWindow::on_borrow_clicked()
         QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("借书成功！"),QMessageBox::Yes);
         savePeople(0);
         saveBook(0);
-        loadPeople();
+        WarnAlert();
         savePeople(0);
         RApointer=alertReserver->nextAlertReserver;
         initWarningList();
@@ -685,9 +687,10 @@ void MainWindow::on_return_2_clicked()
     QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("还书成功！"),QMessageBox::Yes);
     savePeople(0);
     saveBook(0);
-    loadPeople();
+    WarnAlert();
     savePeople(0);
     BWpointer=warningBorrower->nextWarningBorrower;
+    RApointer=alertReserver->nextAlertReserver;
     initWarningList();
     initBookInformation();
     initBookList();
