@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     Enter.cpp \
     getFirstLetter.cpp \
     Search.cpp \
-    WarnAlert.cpp
+    WarnAlert.cpp \
+    keepDiary.cpp
 
 HEADERS  += mainwindow.h \
     login.h \

@@ -16,7 +16,8 @@ void savePeople(int chooseFree)
 		fprintf(peopleFile,"%s\n",ppointer1->password);
 		if(student==ppointer1->job)
 			fputs(ppointer1->academy,peopleFile);
-        fprintf(peopleFile,"%d\n%d\n",ppointer1->credit,ppointer1->borrowNumber);
+        fprintf(peopleFile,"%d\n",ppointer1->credit);
+        fprintf(peopleFile,"%d %d %d\n",ppointer1->borrowNumber,ppointer1->borrowTimes,ppointer1->returnOnTime);
         borrowedBookNode bpointer=ppointer1->bookBorrowed->nextBB;
         if(0==chooseFree)
             while(bpointer)
@@ -45,7 +46,7 @@ void savePeople(int chooseFree)
             }
             free(ppointer1->bookBorrowed);
         }
-        fprintf(peopleFile,"%d\n",ppointer1->reserveNumber);
+        fprintf(peopleFile,"%d %d\n",ppointer1->reserveNumber,ppointer1->reserveTimes);
         bpointer=ppointer1->bookReserved->nextBB;
         if(0==chooseFree)
             while(bpointer)
@@ -68,5 +69,8 @@ void savePeople(int chooseFree)
             free(ppointer1);
 	}
 	fprintf(peopleFile,"#");
+    fprintf(peopleFile,"\n%s\n",administrator->username);
+    fprintf(peopleFile,"%s\n",administrator->password);
+    fprintf(peopleFile,"%s",administrator->key);
     fclose(peopleFile);
 }

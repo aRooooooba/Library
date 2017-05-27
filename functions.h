@@ -21,12 +21,15 @@ int getFirstLetter(char * strName);
 int searchPeople(personNode &searchPHead,int index,char input[]);
 int searchBook(bookNode &searchBHead,int index,char input[]);
 void WarnAlert();
+void keepDiary(personNode ppointer,bookNode bpointer,int choose);
 
 extern personNode peopleHead,peopleTail,attentionP;
 extern bookNode bookHead,bookTail,attentionB;
 extern borrowerWarningNode warningBorrower;
 extern reserverAlertNode alertReserver;
-extern int teacher,student,theUser,reader,administrator,bookNUM,peopleNUM,MAXRNUM,stopTimer,oneDayNewBook,BWNUM,RANUM;
+extern administratorNode administrator;
+extern int teacher,student,theUser,reader,admini,bookNUM,peopleNUM,MAXRNUM,stopTimer,oneDayNewBook,BWNUM,RANUM;
+extern int loginP,borrowB,reserveB,returnB,noReserveB,noReserveB_auto,addP,addB;
 extern time date;
 extern char CEnter[500];
 

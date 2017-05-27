@@ -111,6 +111,7 @@ void addBook::on_ensured_clicked()
         bookTail=bpointer;
         bookNUM++;
         oneDayNewBook++;
+        keepDiary(NULL,bpointer,addB);
         for(int i=1;i<bpointer->number;i++)
         {
             bpointer=(bookNode)malloc(sizeof(book));
@@ -122,6 +123,7 @@ void addBook::on_ensured_clicked()
             bookTail=bpointer;
             bookNUM++;
             oneDayNewBook++;
+            keepDiary(NULL,bpointer,addB);
         }
         if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("添加成功！是否继续添加？"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
         {

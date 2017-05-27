@@ -130,12 +130,13 @@ void addPeople::on_ensured_clicked()
                 {
                     T=ADKey.toLocal8Bit();
                     C=T.data();
-                    if(0==strcmp("user",C))
+                    if(0==strcmp(administrator->key,C))
                     {
                         addedP=1;
                         peopleTail->nextPerson=ppointer;
                         peopleTail=ppointer;
                         peopleNUM++;
+                        keepDiary(ppointer,NULL,addP);
                         accept();
                     }
                     else
@@ -148,6 +149,7 @@ void addPeople::on_ensured_clicked()
                 peopleTail->nextPerson=ppointer;
                 peopleTail=ppointer;
                 peopleNUM++;
+                keepDiary(ppointer,NULL,addP);
                 if(QMessageBox::Yes==QMessageBox::question(this,tr("Question"),QString::fromLocal8Bit("添加成功！是否继续添加？"),QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes))
                 {
                     ppointer=(personNode)malloc(sizeof(person));

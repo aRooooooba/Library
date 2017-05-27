@@ -23,8 +23,10 @@ typedef struct bookType
 	char description[16*30];	//简介，30字以内
 	status limit;	//1为只有老师能看，0都能看
 	status isBorrowed;	//1是在借状态
+    int borrowedTimes;
     int borrower;   //借书者编号
 	int reserveNumber;	//预约人数
+    int reservedTimes;
 	SqQueue reserveQueue;	//预约队列
 	struct bookType * nextBook;
 }book,* bookNode;
@@ -45,9 +47,12 @@ typedef struct personType
 	char academy[16*15];	//学院名，最大15个字
 	int credit;	//信用，满分100
 	int borrowNumber;	//借书数量
+    int borrowTimes;
+    int returnOnTime;
 	borrowedBookNode bookBorrowed;
 	borrowedBookNode borrowedBTail;	//尾结点，便于添加
 	int reserveNumber;	//预约数量
+    int reserveTimes;
 	borrowedBookNode bookReserved;
 	borrowedBookNode reservedBTail;
 	struct personType * nextPerson;
@@ -80,6 +85,13 @@ typedef struct reserverAlertType
     char bookName[16*20];
     struct reserverAlertType * nextAlertReserver;
 }reserverAlertList,* reserverAlertNode;
+
+typedef struct administratorType
+{
+    char username[12];
+    char password[12];
+    char key[12];
+}* administratorNode;
 
 #endif	//DATASTRUCT_H
 

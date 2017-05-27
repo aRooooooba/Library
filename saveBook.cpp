@@ -24,10 +24,10 @@ void saveBook(int chooseFree)
             fprintf(bookFile,"%d ",bpointer1->returnTime[i]);
         fprintf(bookFile,"%d\n%d\n",bpointer1->returnTime[2],bpointer1->number);
 		fputs(bpointer1->description,bookFile);
-        fprintf(bookFile,"%d %d\n",bpointer1->limit,bpointer1->isBorrowed);
+        fprintf(bookFile,"%d\n%d %d\n",bpointer1->limit,bpointer1->isBorrowed,bpointer1->borrowedTimes);
         if(bpointer1->isBorrowed)
             fprintf(bookFile,"%d\n",bpointer1->borrower);
-        fprintf(bookFile,"%d\n",bpointer1->reserveNumber);
+        fprintf(bookFile,"%d %d\n",bpointer1->reserveNumber,bpointer1->reservedTimes);
         for(int i=0;i<bpointer1->reserveNumber;i++)
             fprintf(bookFile,"%d\n",bpointer1->reserveQueue.base[(bpointer1->reserveQueue.front+i)%MAXRNUM]);
         if(1==chooseFree)

@@ -18,8 +18,10 @@ void copyInfoB(bookNode &Dest,bookNode Source)
     strcpy(Dest->description,Source->description);
     Dest->limit=Source->limit;
     Dest->isBorrowed=Source->isBorrowed;
+    Dest->borrowedTimes=Source->borrowedTimes;
     Dest->borrower=Source->borrower;
     Dest->reserveNumber=Source->reserveNumber;
+    Dest->reservedTimes=Source->reservedTimes;
     initQueue(&Dest->reserveQueue);
     Dest->reserveQueue.front=Source->reserveQueue.front;
     Dest->reserveQueue.rear=Source->reserveQueue.rear;
@@ -36,6 +38,8 @@ void copyInfoP(personNode &Dest,personNode Source)
     strcpy(Dest->academy,Source->academy);
     Dest->credit=Source->credit;
     Dest->borrowNumber=Source->borrowNumber;
+    Dest->borrowTimes=Source->borrowTimes;
+    Dest->returnOnTime=Source->returnOnTime;
     borrowedBookNode bpointer1=NULL,bpointer2=NULL,bpointer3=Source->bookBorrowed->nextBB;
     Dest->bookBorrowed=(borrowedBookNode)malloc(sizeof(borrowedBook));
     Dest->bookBorrowed->nextBB=NULL;
@@ -53,6 +57,7 @@ void copyInfoP(personNode &Dest,personNode Source)
     }
     Dest->borrowedBTail=bpointer1;
     Dest->reserveNumber=Source->reserveNumber;
+    Dest->reserveTimes=Source->reserveTimes;
     bpointer1=NULL,bpointer2=NULL,bpointer3=Source->bookReserved->nextBB;
     Dest->bookReserved=(borrowedBookNode)malloc(sizeof(borrowedBook));
     Dest->bookReserved->nextBB=NULL;

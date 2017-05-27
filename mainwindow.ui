@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1031</width>
-    <height>639</height>
+    <height>690</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,7 +58,7 @@
       <x>730</x>
       <y>90</y>
       <width>271</width>
-      <height>471</height>
+      <height>521</height>
      </rect>
     </property>
     <property name="font">
@@ -112,7 +112,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>430</y>
+       <y>490</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -375,7 +375,7 @@
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>430</y>
+       <y>490</y>
        <width>93</width>
        <height>28</height>
       </rect>
@@ -582,7 +582,7 @@
       <rect>
        <x>100</x>
        <y>370</y>
-       <width>141</width>
+       <width>161</width>
        <height>21</height>
       </rect>
      </property>
@@ -615,8 +615,8 @@
     <widget class="QPushButton" name="return_2">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>430</y>
+       <x>80</x>
+       <y>490</y>
        <width>101</width>
        <height>28</height>
       </rect>
@@ -634,8 +634,8 @@
     <widget class="QPushButton" name="borrow">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>430</y>
+       <x>80</x>
+       <y>490</y>
        <width>101</width>
        <height>28</height>
       </rect>
@@ -647,8 +647,8 @@
     <widget class="QPushButton" name="noReserve">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>430</y>
+       <x>80</x>
+       <y>490</y>
        <width>101</width>
        <height>28</height>
       </rect>
@@ -661,6 +661,78 @@
      </property>
      <property name="text">
       <string>取消预约</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="borrowedTimes_L">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>420</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>借阅次数</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="borrowedTimes">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>430</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLabel" name="reservedTimes_L">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>460</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>预约次数</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="reservedTimes">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>460</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <zorder>reserverInformation_bg</zorder>
@@ -696,12 +768,16 @@
     <zorder>return_2</zorder>
     <zorder>borrow</zorder>
     <zorder>noReserve</zorder>
+    <zorder>borrowedTimes_L</zorder>
+    <zorder>borrowedTimes</zorder>
+    <zorder>reservedTimes_L</zorder>
+    <zorder>reservedTimes</zorder>
    </widget>
    <widget class="QGroupBox" name="alerts">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>60</y>
+      <y>90</y>
       <width>171</width>
       <height>431</height>
      </rect>
@@ -784,10 +860,10 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>210</x>
       <y>120</y>
-      <width>481</width>
-      <height>421</height>
+      <width>501</width>
+      <height>491</height>
      </rect>
     </property>
    </widget>
@@ -982,7 +1058,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>50</y>
+       <y>30</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -998,7 +1074,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>250</y>
+       <y>190</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -1017,7 +1093,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>420</y>
+       <y>310</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -1033,7 +1109,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>50</y>
+       <y>30</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1055,7 +1131,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>150</y>
+       <y>110</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -1071,7 +1147,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>250</y>
+       <y>190</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1090,7 +1166,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>420</y>
+       <y>310</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -1109,7 +1185,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>200</y>
+       <y>150</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1128,7 +1204,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>150</y>
+       <y>110</y>
        <width>41</width>
        <height>21</height>
       </rect>
@@ -1147,7 +1223,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
+       <y>70</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1169,7 +1245,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>200</y>
+       <y>150</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -1185,7 +1261,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>300</y>
+       <y>230</y>
        <width>31</width>
        <height>21</height>
       </rect>
@@ -1207,7 +1283,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>300</y>
+       <y>230</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -1226,7 +1302,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>360</y>
+       <y>270</y>
        <width>131</width>
        <height>21</height>
       </rect>
@@ -1245,7 +1321,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>100</y>
+       <y>70</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -1261,7 +1337,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>360</y>
+       <y>270</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -1280,7 +1356,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>360</y>
+       <y>270</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1296,7 +1372,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>420</y>
+       <y>310</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1312,7 +1388,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>250</y>
+       <y>190</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1328,7 +1404,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>360</y>
+       <y>270</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1350,7 +1426,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>250</y>
+       <y>190</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1372,7 +1448,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>420</y>
+       <y>310</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -1388,6 +1464,105 @@
      </property>
      <property name="flat">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="borrowTime_L">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>350</y>
+       <width>72</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>借书次数</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="borrowTimes">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>350</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </widget>
+    <widget class="QLabel" name="returnOnTime_L">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>385</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Arabic</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>按时归还次数</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="returnOnTime">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>390</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="reserveTimes_L">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>430</y>
+       <width>72</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>预约次数</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="reserveTimes">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>430</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
      </property>
     </widget>
     <zorder>editPassword_bg</zorder>
@@ -1412,6 +1587,12 @@
     <zorder>borrowedInformation</zorder>
     <zorder>editPassword</zorder>
     <zorder>reservedInformation</zorder>
+    <zorder>borrowTime_L</zorder>
+    <zorder>borrowTimes</zorder>
+    <zorder>returnOnTime_L</zorder>
+    <zorder>returnOnTime</zorder>
+    <zorder>reserveTimes_L</zorder>
+    <zorder>reserveTimes</zorder>
    </widget>
    <widget class="QLineEdit" name="date">
     <property name="enabled">
@@ -1420,7 +1601,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>10</y>
+      <y>20</y>
       <width>261</width>
       <height>21</height>
      </rect>
@@ -1436,7 +1617,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>510</y>
+      <y>550</y>
       <width>51</width>
       <height>51</height>
      </rect>
@@ -1458,7 +1639,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>510</y>
+      <y>550</y>
       <width>51</width>
       <height>51</height>
      </rect>
@@ -1521,7 +1702,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>510</y>
+      <y>550</y>
       <width>51</width>
       <height>51</height>
      </rect>
@@ -1537,7 +1718,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>510</y>
+      <y>550</y>
       <width>51</width>
       <height>51</height>
      </rect>
@@ -1648,23 +1829,22 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QPushButton" name="administratorEditor">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1031</width>
-      <height>571</height>
+      <x>80</x>
+      <y>30</y>
+      <width>51</width>
+      <height>21</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
     </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
    </widget>
-   <zorder>label_4</zorder>
    <zorder>label_2</zorder>
    <zorder>model</zorder>
    <zorder>welcome</zorder>
@@ -1690,6 +1870,7 @@
    <zorder>logout</zorder>
    <zorder>myInformation_bg</zorder>
    <zorder>myInformation</zorder>
+   <zorder>administratorEditor</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

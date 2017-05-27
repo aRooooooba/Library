@@ -27,7 +27,8 @@ void loadPeople()
 			fgets(ppointer2->academy,240,peopleFile);
         else
             ppointer2->academy[0]='\0';
-        fscanf(peopleFile,"%d%d",&ppointer2->credit,&ppointer2->borrowNumber);
+        fscanf(peopleFile,"%d",&ppointer2->credit);
+        fscanf(peopleFile,"%d%d%d",&ppointer2->borrowNumber,&ppointer2->borrowTimes,&ppointer2->returnOnTime);
         borrowedBookNode BR_Bpointer1=NULL,BR_Bpointer2=NULL;
         ppointer2->bookBorrowed=(borrowedBookNode)malloc(sizeof(borrowedBook));
         ppointer2->bookBorrowed->nextBB=NULL;
@@ -45,7 +46,7 @@ void loadPeople()
             BR_Bpointer1=BR_Bpointer2;
         }
         ppointer2->borrowedBTail=BR_Bpointer1;
-        fscanf(peopleFile,"%d",&ppointer2->reserveNumber);
+        fscanf(peopleFile,"%d%d",&ppointer2->reserveNumber,&ppointer2->reserveTimes);
         BR_Bpointer1=NULL,BR_Bpointer2=NULL;
         ppointer2->bookReserved=(borrowedBookNode)malloc(sizeof(borrowedBook));
         ppointer2->bookReserved->nextBB=NULL;
@@ -70,5 +71,11 @@ void loadPeople()
 	}
     peopleTail=ppointer1;	//Î²½áµã
 	free(ppointer2);
+    administrator=(administratorNode)malloc(sizeof(struct administratorType));
+    fscanf(peopleFile,"%s",administrator->username);
+    fgetc(peopleFile);
+    fscanf(peopleFile,"%s",administrator->password);
+    fgetc(peopleFile);
+    fscanf(peopleFile,"%s",administrator->key);
     fclose(peopleFile);
 }

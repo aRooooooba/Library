@@ -31,12 +31,12 @@ void loadBook()
 		fgetc(bookFile);
 		fgets(bpointer2->description,480,bookFile);
 		fscanf(bookFile,"%d",&bpointer2->limit);
-		fscanf(bookFile,"%d",&bpointer2->isBorrowed);
+        fscanf(bookFile,"%d%d",&bpointer2->isBorrowed,&bpointer2->borrowedTimes);
         if(bpointer2->isBorrowed)
             fscanf(bookFile,"%d",&bpointer2->borrower);
         else
             bpointer2->borrower=0;
-        fscanf(bookFile,"%d",&bpointer2->reserveNumber);
+        fscanf(bookFile,"%d%d",&bpointer2->reserveNumber,&bpointer2->reservedTimes);
         initQueue(&bpointer2->reserveQueue);
         int reserveid;
         for(int i=0;i<bpointer2->reserveNumber;i++)

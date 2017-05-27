@@ -17,7 +17,7 @@ void WarnAlert()
     for(;bpointer;bpointer=bpointer->nextBook)
     {
         int diffDay=GetDiffDays(date->year,date->month,date->day,bpointer->returnTime[0],bpointer->returnTime[1],bpointer->returnTime[2]);
-        if(2==diffDay)
+        if(0<bpointer->reserveNumber&&2==diffDay)
         {
             bpointer->reserveNumber--;
             bpointer->reserveQueue.front=(bpointer->reserveQueue.front+1)%MAXRNUM;
@@ -72,6 +72,7 @@ void WarnAlert()
         BR_Bpointer2=ppointer->bookReserved->nextBB;
         for(int i=0;i<ppointer->reserveNumber;i++,BR_Bpointer1=BR_Bpointer2,BR_Bpointer2=BR_Bpointer2->nextBB)
         {
+            for(bpointer=bookHead->nextBook;0!=strcmp(bpointer->id,BR_Bpointer2->id);bpointer=bpointer->nextBook);
             if(0==bpointer->isBorrowed&&bpointer->reserveQueue.base[bpointer->reserveQueue.front]==ppointer->id)
             {
                 RApointer2=(reserverAlertNode)malloc(sizeof(reserverAlertList));
@@ -97,6 +98,7 @@ void WarnAlert()
                     BR_Bpointer1->nextBB=BR_Bpointer2->nextBB;
                     free(BR_Bpointer2);
                     BR_Bpointer2=BR_Bpointer1;
+                    keepDiary(ppointer,bpointer,noReserveB_auto);
                 }
             }
         }

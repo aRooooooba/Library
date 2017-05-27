@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::initializeUI()
 {
-    this->setFixedSize(1031,626);
+    this->setFixedSize(1031,690);
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
     if(reader==theUser)
     {
@@ -39,6 +39,7 @@ void MainWindow::initializeUI()
         BNUM=bookNUM;
         ui->model->setText(QString::fromLocal8Bit("读者模式"));
         ui->welcome->setText(QString::fromLocal8Bit(attentionP->name));
+        ui->administratorEditor->setVisible(false);
         ui->addBook->setVisible(false);
         ui->addBook_bg->setVisible(false);
         ui->addPeople->setVisible(false);
@@ -122,6 +123,14 @@ void MainWindow::initPersonInformation()
         ui->reservedInformation->setEnabled(true);
     else
         ui->reservedInformation->setEnabled(false);
+    ui->borrowTimes->setText(QString::number(attentionP->borrowTimes,10));
+    ui->returnOnTime->setText(QString::number(attentionP->returnOnTime,10));
+    if(attentionP->borrowTimes)
+    {
+        int returnOnTime_rate1=100*(attentionP->returnOnTime/attentionP->borrowTimes),returnOnTime_rate2=(1000*(attentionP->returnOnTime/attentionP->borrowTimes))%10;
+        ui->returnOnTime->setToolTip(QString::fromLocal8Bit("按时还书率为%1.%2\%").arg(QString::number(returnOnTime_rate1,10)).arg(QString::number(returnOnTime_rate2,10)));
+    }
+    ui->reserveTimes->setText(QString::number(attentionP->reserveTimes,10));
 }
 
 void MainWindow::initBookInformation()
@@ -159,6 +168,8 @@ void MainWindow::initBookInformation()
         ui->reserverInformation->setEnabled(false);
     else
         ui->reserverInformation->setEnabled(true);
+    ui->borrowedTimes->setText(QString::number(attentionB->borrowedTimes,10));
+    ui->reservedTimes->setText(QString::number(attentionB->reservedTimes,10));
     if(reader==theUser)
     {
         if(attentionB->borrower==attentionP->id)
@@ -176,24 +187,24 @@ void MainWindow::initBookInformation()
             for(;i!=attentionB->reserveQueue.rear&&attentionB->reserveQueue.base[i]!=attentionP->id;i=(i+1)%MAXRNUM);
             if(attentionB->reserveQueue.rear==i)    //该用户还没有预约该书
             {
-                ui->borrow->setGeometry(90,430,101,28);
+                ui->borrow->setGeometry(80,490,101,28);
                 ui->borrow->setVisible(true);
                 ui->return_2->setVisible(false);
                 ui->noReserve->setVisible(false);
             }
             else if(0==attentionB->isBorrowed&&attentionB->reserveQueue.front==i)
             {
-                ui->borrow->setGeometry(30,430,101,28);
+                ui->borrow->setGeometry(30,490,101,28);
                 ui->borrow->setVisible(true);
                 ui->return_2->setVisible(false);
-                ui->noReserve->setGeometry(150,430,101,28);
+                ui->noReserve->setGeometry(150,490,101,28);
                 ui->noReserve->setVisible(true);
             }
             else
             {
                 ui->borrow->setVisible(false);
                 ui->return_2->setVisible(false);
-                ui->noReserve->setGeometry(90,430,101,28);
+                ui->noReserve->setGeometry(80,490,101,28);
                 ui->noReserve->setVisible(true);
             }
         }
@@ -400,7 +411,7 @@ void MainWindow::initWarningList()
                 warnList.append(QString::fromLocal8Bit(BWpointer->bookName));
                 warnList.append(QString::fromLocal8Bit("》(ID:"));
                 warnList.append(QString::fromLocal8Bit(BWpointer->bookID));
-                if(0>BWpointer->diffDays)
+                if(0>=BWpointer->diffDays)
                     warnList.append(QString::fromLocal8Bit(")即将过期，请尽快归还！"));
                 else
                     warnList.append(QString::fromLocal8Bit(")已经过期，请尽快归还！"));
@@ -435,7 +446,7 @@ void MainWindow::initWarningList()
             warnList.append(QString::fromLocal8Bit(BWpointer->bookName));
             warnList.append(QString::fromLocal8Bit("》(ID:"));
             warnList.append(QString::fromLocal8Bit(BWpointer->bookID));
-            if(0>BWpointer->diffDays)
+            if(0>=BWpointer->diffDays)
                 warnList.append(QString::fromLocal8Bit(")即将过期，请提醒归还！"));
             else
                 warnList.append(QString::fromLocal8Bit(")已经过期，请提醒归还！"));
@@ -589,8 +600,11 @@ void MainWindow::on_borrow_clicked()
             attentionP->reserveNumber++;
             attentionP->reservedBTail->nextBB=bpointer;
             attentionP->reservedBTail=bpointer;
+            attentionP->reserveTimes++;
             attentionB->reserveNumber++;
+            attentionB->reservedTimes++;
             enQueue(&attentionB->reserveQueue,attentionP->id);
+            keepDiary(attentionP,attentionB,reserveB);
             QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("预约成功！"),QMessageBox::Yes);
             saveBook(0);
             savePeople(0);
@@ -612,8 +626,11 @@ void MainWindow::on_borrow_clicked()
             attentionP->reserveNumber++;
             attentionP->reservedBTail->nextBB=bpointer;
             attentionP->reservedBTail=bpointer;
+            attentionP->reserveTimes++;
             attentionB->reserveNumber++;
+            attentionB->reservedTimes++;
             enQueue(&attentionB->reserveQueue,attentionP->id);
+            keepDiary(attentionP,attentionB,reserveB);
             QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("预约成功！"),QMessageBox::Yes);
             saveBook(0);
             savePeople(0);
@@ -653,8 +670,11 @@ void MainWindow::on_borrow_clicked()
         attentionP->borrowNumber++;
         attentionP->borrowedBTail->nextBB=bpointer;
         attentionP->borrowedBTail=bpointer;
+        attentionP->borrowTimes++;
         attentionB->isBorrowed=1;
         attentionB->borrower=attentionP->id;
+        attentionB->borrowedTimes++;
+        keepDiary(attentionP,attentionB,borrowB);
         QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("借书成功！"),QMessageBox::Yes);
         savePeople(0);
         saveBook(0);
@@ -669,31 +689,86 @@ void MainWindow::on_borrow_clicked()
 
 void MainWindow::on_return_2_clicked()
 {
-    attentionP->borrowNumber--;
-    borrowedBookNode bpointer1=attentionP->bookBorrowed,bpointer2=NULL;
-    for(bpointer2=attentionP->bookBorrowed->nextBB;0!=strcmp(attentionB->id,bpointer2->id);bpointer2=bpointer2->nextBB)
-        bpointer1=bpointer2;
-    bpointer1->nextBB=bpointer2->nextBB;
-    if(!bpointer1->nextBB)
-        attentionP->borrowedBTail=bpointer1;
-    if(100>attentionP->credit)
-        attentionP->credit++;
-    free(bpointer2);
-    attentionB->isBorrowed=0;
-    attentionB->borrower=0;
-    attentionB->returnTime[0]=date->year;
-    attentionB->returnTime[1]=date->month;
-    attentionB->returnTime[2]=date->day;
-    QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("还书成功！"),QMessageBox::Yes);
-    savePeople(0);
-    saveBook(0);
-    WarnAlert();
-    savePeople(0);
-    BWpointer=warningBorrower->nextWarningBorrower;
-    RApointer=alertReserver->nextAlertReserver;
-    initWarningList();
-    initBookInformation();
-    initBookList();
+    QByteArray T;
+    char * C;
+    bool ok=false;
+    QString ADKey=QInputDialog::getText(this,tr("Warning"),QString::fromLocal8Bit("请输入管理员密钥："),QLineEdit::Password,QString::null,&ok);
+    if(ok&&!ADKey.isEmpty())
+    {
+        T=ADKey.toLocal8Bit();
+        C=T.data();
+        if(0==strcmp(administrator->key,C))
+        {
+            borrowedBookNode bpointer1=attentionP->bookBorrowed,bpointer2=NULL;
+            for(bpointer2=attentionP->bookBorrowed->nextBB;0!=strcmp(attentionB->id,bpointer2->id);bpointer2=bpointer2->nextBB)
+                bpointer1=bpointer2;
+            bpointer1->nextBB=bpointer2->nextBB;
+            int diffDay=GetDiffDays(bpointer2->returnTime[0],bpointer2->returnTime[1],bpointer2->returnTime[2],date->year,date->month,date->day);
+            if(0<=diffDay)
+            {
+                attentionP->returnOnTime++;
+                attentionP->borrowNumber--;
+                if(!bpointer1->nextBB)
+                    attentionP->borrowedBTail=bpointer1;
+                if(100>attentionP->credit)
+                    attentionP->credit++;
+                free(bpointer2);
+                attentionB->isBorrowed=0;
+                attentionB->borrower=0;
+                attentionB->returnTime[0]=date->year;
+                attentionB->returnTime[1]=date->month;
+                attentionB->returnTime[2]=date->day;
+                keepDiary(attentionP,attentionB,returnB);
+                QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("还书成功！"),QMessageBox::Yes);
+                savePeople(0);
+                saveBook(0);
+                WarnAlert();
+                savePeople(0);
+                BWpointer=warningBorrower->nextWarningBorrower;
+                RApointer=alertReserver->nextAlertReserver;
+                initWarningList();
+                initBookInformation();
+                initBookList();
+            }
+            else
+            {
+                diffDay=-diffDay;
+                int money=(1+diffDay)*diffDay/2;
+                ADKey=QInputDialog::getText(this,tr("Error"),QString::fromLocal8Bit("您借的书已过期%1天，请先支付%2元赔偿金后由管理员输入密钥确认：").arg(QString::number(diffDay,10)).arg(QString::number(money,10)),QLineEdit::Password,QString::null,&ok);
+                T=ADKey.toLocal8Bit();
+                C=T.data();
+                if(0==strcmp(administrator->key,C))
+                {
+                    attentionP->borrowNumber--;
+                    if(!bpointer1->nextBB)
+                        attentionP->borrowedBTail=bpointer1;
+                    if(100>attentionP->credit)
+                        attentionP->credit++;
+                    free(bpointer2);
+                    attentionB->isBorrowed=0;
+                    attentionB->borrower=0;
+                    attentionB->returnTime[0]=date->year;
+                    attentionB->returnTime[1]=date->month;
+                    attentionB->returnTime[2]=date->day;
+                    keepDiary(attentionP,attentionB,returnB);
+                    QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("还书成功，下次请记得按时还书！"),QMessageBox::Yes);
+                    savePeople(0);
+                    saveBook(0);
+                    WarnAlert();
+                    savePeople(0);
+                    BWpointer=warningBorrower->nextWarningBorrower;
+                    RApointer=alertReserver->nextAlertReserver;
+                    initWarningList();
+                    initBookInformation();
+                    initBookList();
+                }
+                else
+                    QMessageBox::critical(this,tr("Error"),QString::fromLocal8Bit("管理员密钥错误！"),QMessageBox::Yes);
+            }
+        }
+        else
+            QMessageBox::critical(this,tr("Error"),QString::fromLocal8Bit("管理员密钥错误！"),QMessageBox::Yes);
+    }
 }
 
 void MainWindow::on_noReserve_clicked()
@@ -714,6 +789,7 @@ void MainWindow::on_noReserve_clicked()
     attentionB->reserveQueue.rear--;
     if(-1==attentionB->reserveQueue.rear)
         attentionB->reserveQueue.rear=MAXRNUM;
+    keepDiary(attentionP,attentionB,noReserveB);
     QMessageBox::information(this,tr("OK"),QString::fromLocal8Bit("取消预约成功！"),QMessageBox::Yes);
     savePeople(0);
     saveBook(0);
@@ -827,4 +903,33 @@ void MainWindow::on_search_clicked()
             initBookList();
         }
     }
+}
+
+void MainWindow::on_administratorEditor_clicked()
+{
+    QByteArray T;
+    char * C;
+    bool ok=false;
+    QString AD=QInputDialog::getText(this,tr("Edit"),QString::fromLocal8Bit("请输入管理员用户名："),QLineEdit::Password,QString::null,&ok);
+    if(ok&&!AD.isEmpty())
+    {
+        T=AD.toLocal8Bit();
+        C=T.data();
+        strcpy(administrator->username,C);
+    }
+    AD=QInputDialog::getText(this,tr("Edit"),QString::fromLocal8Bit("请输入管理员密码："),QLineEdit::Password,QString::null,&ok);
+    if(ok&&!AD.isEmpty())
+    {
+        T=AD.toLocal8Bit();
+        C=T.data();
+        strcpy(administrator->password,C);
+    }
+    AD=QInputDialog::getText(this,tr("Edit"),QString::fromLocal8Bit("请输入管理员密钥："),QLineEdit::Password,QString::null,&ok);
+    if(ok&&!AD.isEmpty())
+    {
+        T=AD.toLocal8Bit();
+        C=T.data();
+        strcpy(administrator->key,C);
+    }
+    savePeople(0);
 }

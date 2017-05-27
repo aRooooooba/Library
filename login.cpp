@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <cstdio>
 
+int timeCounter;
+
 login::login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::login)
@@ -19,7 +21,8 @@ login::login(QWidget *parent) :
     saveBook(0);
     savePeople(0);
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
-    begin=startTimer(5000);
+    begin=startTimer(1000);
+    timeCounter=0;
 }
 
 login::~login()
@@ -31,13 +34,18 @@ void login::timerEvent(QTimerEvent *event)
 {
     if(event->timerId()==begin&&!stopTimer)
     {
-        oneDayNewBook=1;
-        dateCalculator();
-        WarnAlert();
-        saveBook(0);
-        savePeople(0);
+        timeCounter++;
+        if(5==timeCounter)
+        {
+            oneDayNewBook=1;
+            dateCalculator();
+            ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
+            WarnAlert();
+            saveBook(0);
+            savePeople(0);
+            timeCounter=0;
+        }
     }
-    ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
 }
 
 void login::on_exit_clicked()
@@ -51,6 +59,7 @@ void login::on_exit_clicked()
 void login::on_register_2_clicked()
 {
     stopTimer=1;
+    timeCounter=0;
     theUser=reader;
     addPeople a;
     if(Accepted==a.exec())
@@ -60,13 +69,15 @@ void login::on_register_2_clicked()
 
 void login::on_enter_clicked()
 {
-    if("user"==ui->userName->text()&&"user"==ui->password->text())
+    if(administrator->username==ui->userName->text()&&administrator->password==ui->password->text())
     {
+        timeCounter=0;
         stopTimer=1;
-        theUser=administrator;
+        theUser=admini;
         ui->userName->clear();
         ui->password->clear();
         ui->userName->setFocus();
+        keepDiary(NULL,NULL,loginP);
         accept();
     }
     else
@@ -78,12 +89,14 @@ void login::on_enter_clicked()
             {
                 if(ppointer->password==ui->password->text())
                 {
+                    timeCounter=0;
                     stopTimer=1;
                     ui->userName->clear();
                     ui->password->clear();
                     ui->userName->setFocus();
                     theUser=reader;
                     attentionP=ppointer;
+                    keepDiary(attentionP,NULL,loginP);
                     accept();
                     break;
                 }

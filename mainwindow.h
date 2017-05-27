@@ -74,6 +74,8 @@ private slots:
 
     void on_search_clicked();
 
+    void on_administratorEditor_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSignalMapper *signalMapper;
