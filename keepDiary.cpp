@@ -34,7 +34,7 @@ void keepDiary(personNode ppointer,bookNode bpointer,int choose)
             fprintf(diaryFile,"%s同学",removeEnter(ppointer->name));
         else
             fprintf(diaryFile,"%s老师",removeEnter(ppointer->name));
-        fprintf(diaryFile,"预约到期，系统自动取消了其对《%s》(ID:%s)一书的预约。\n",removeEnter(bpointer->name),bpointer->id);
+        fprintf(diaryFile,"(ID:%d)预约到期，系统自动取消了其对《%s》(ID:%s)一书的预约。\n",ppointer->id,removeEnter(bpointer->name),bpointer->id);
     }
     else if(addP==choose)
     {

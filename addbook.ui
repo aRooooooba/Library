@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>添加新书</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="pics.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -330,6 +334,8 @@ p, li { white-space: pre-wrap; }
   <tabstop>ensured</tabstop>
   <tabstop>cancel</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="pics.qrc"/>
+ </resources>
  <connections/>
 </ui>

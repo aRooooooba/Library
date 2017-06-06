@@ -28,13 +28,11 @@ addPeople::~addPeople()
 
 void addPeople::on_student_clicked()
 {
-    ppointer->job=student;
     ui->academy->setEnabled(true);
 }
 
 void addPeople::on_teacher_clicked()
 {
-    ppointer->job=teacher;
     ui->academy->clear();
     ui->academy->setEnabled(false);
 }
@@ -107,18 +105,24 @@ void addPeople::on_ensured_clicked()
             T=ui->password->text().toLocal8Bit();
             C=T.data();
             strcpy(ppointer->password,C);
-            if(student==ppointer->job)
+            if(ui->student->isChecked())
             {
+                ppointer->job=student;
                 T=ui->academy->text().toLocal8Bit();
                 C=T.data();
                 strcpy(ppointer->academy,appendEnter(C));
             }
+            else if(ui->teacher->isChecked())
+                ppointer->job=teacher;
             ppointer->credit=100;
             ppointer->borrowNumber=0;
+            ppointer->borrowTimes=0;
+            ppointer->returnOnTime=0;
             ppointer->bookBorrowed=(borrowedBookNode)malloc(sizeof(borrowedBook));
             ppointer->bookBorrowed->nextBB=NULL;
             ppointer->borrowedBTail=NULL;
             ppointer->reserveNumber=0;
+            ppointer->reserveTimes=0;
             ppointer->bookReserved=(borrowedBookNode)malloc(sizeof(borrowedBook));
             ppointer->bookReserved->nextBB=NULL;
             ppointer->reservedBTail=NULL;

@@ -104,8 +104,10 @@ void addBook::on_ensured_clicked()
         else if(ui->teacher->isChecked())
             bpointer->limit=teacher;
         bpointer->isBorrowed=0;
+        bpointer->borrowedTimes=0;
         bpointer->borrower=0;
         bpointer->reserveNumber=0;
+        bpointer->reservedTimes=0;
         initQueue(&bpointer->reserveQueue);
         bookTail->nextBook=bpointer;
         bookTail=bpointer;

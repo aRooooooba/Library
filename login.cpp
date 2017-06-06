@@ -14,12 +14,12 @@ login::login(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowFlags(Qt::Window|Qt::FramelessWindowHint |Qt::WindowSystemMenuHint|Qt::WindowMinimizeButtonHint|Qt::WindowMaximizeButtonHint);
-    loadTime();
-    loadBook();
-    loadPeople();
-    WarnAlert();
-    saveBook(0);
-    savePeople(0);
+    loadTime();	//加载时间
+    loadBook();	//加载书籍信息
+    loadPeople();	//加载人物信息
+    WarnAlert();	//加载提醒事项
+    saveBook(0);	//提醒事项会改变书籍人物信息，存储
+    savePeople(0);	//存储
     ui->date->setText(QString("%1.%2.%3").arg(QString::number(date->year,10)).arg(QString::number(date->month,10)).arg(QString::number(date->day,10)));
     begin=startTimer(1000);
     timeCounter=0;

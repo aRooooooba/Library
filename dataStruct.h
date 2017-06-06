@@ -69,7 +69,7 @@ typedef struct borrowerWarningType
 {
     int personID;
     char personName[16*4];
-    int job;
+    status job;
     char bookID[17];
     char bookName[16*20];
     int diffDays;
@@ -80,7 +80,7 @@ typedef struct reserverAlertType
 {
     int personID;
     char personName[16*4];
-    int job;
+    status job;
     char bookID[17];
     char bookName[16*20];
     struct reserverAlertType * nextAlertReserver;

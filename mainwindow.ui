@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>1031</width>
-    <height>690</height>
+    <height>698</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>某校图书馆</string>
+   <string>北京邮电大图书馆</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="pics.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="model">
@@ -72,7 +76,7 @@
     </property>
     <widget class="QLineEdit" name="bookID">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -87,6 +91,9 @@
        <family>Adobe Arabic</family>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="reserverNumber">
@@ -805,6 +812,9 @@
        <pointsize>11</pointsize>
       </font>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QTextEdit" name="reserveAlert">
      <property name="enabled">
@@ -827,7 +837,7 @@
       <bool>false</bool>
      </property>
      <property name="readOnly">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -1037,9 +1047,9 @@
     <property name="geometry">
      <rect>
       <x>730</x>
-      <y>90</y>
+      <y>110</y>
       <width>281</width>
-      <height>471</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="font">
@@ -1053,7 +1063,7 @@
     </property>
     <widget class="QLineEdit" name="personName">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -1068,6 +1078,9 @@
        <family>Adobe Arabic</family>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="password">
@@ -1126,7 +1139,7 @@
     </widget>
     <widget class="QLineEdit" name="job">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -1141,6 +1154,9 @@
        <family>Adobe Arabic</family>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="password_L">
@@ -1240,7 +1256,7 @@
     </widget>
     <widget class="QLineEdit" name="academy">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -1255,6 +1271,9 @@
        <family>Adobe Arabic</family>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="credit_L">
@@ -1316,7 +1335,7 @@
     </widget>
     <widget class="QLineEdit" name="personID">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -1331,6 +1350,9 @@
        <family>Adobe Arabic</family>
        <pointsize>10</pointsize>
       </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="borrowNumber_L">
@@ -1939,6 +1961,8 @@
   <tabstop>logout</tabstop>
   <tabstop>myInformation</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="pics.qrc"/>
+ </resources>
  <connections/>
 </ui>

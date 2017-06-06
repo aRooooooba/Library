@@ -18,6 +18,6 @@
         <file>editLimit.png</file>
         <file>editPassword.png</file>
         <file>addBook.png</file>
-        <file>mainwindow_bg.png</file>
+        <file>icon.png</file>
     </qresource>
 </RCC>

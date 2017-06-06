@@ -50,10 +50,10 @@ void MainWindow::initializeUI()
         ui->allPeople_bg->setVisible(false);
         ui->peopelScope->setVisible(false);
         SBook=1;
-        ui->bookName->setEnabled(false);
-        ui->author->setEnabled(false);
-        ui->publisher->setEnabled(false);
-        ui->description->setEnabled(false);
+        ui->bookName->setReadOnly(true);
+        ui->author->setReadOnly(true);
+        ui->publisher->setReadOnly(true);
+        ui->description->setReadOnly(true);
         ui->editLimit->setVisible(false);
         ui->editLimit_bg->setVisible(false);
         ui->borrowerInformation->setVisible(false);
@@ -300,7 +300,7 @@ void MainWindow::initPeopleList()
     ui->tableWidget->setColumnWidth(0,80);
     ui->tableWidget->setColumnWidth(1,120);
     ui->tableWidget->setColumnWidth(2,60);
-    ui->tableWidget->setColumnWidth(3,160);
+    ui->tableWidget->setColumnWidth(3,170);
     ui->tableWidget->setColumnWidth(4,70);
     ui->tableWidget->setColumnWidth(5,70);
     ui->tableWidget->setColumnWidth(6,70);
@@ -357,10 +357,10 @@ void MainWindow::initBookList()
     ui->tableWidget->setColumnCount(4);
     ui->tableWidget->setRowCount(BNUM);
    //设置每列宽
-    ui->tableWidget->setColumnWidth(0,160);
+    ui->tableWidget->setColumnWidth(0,170);
     ui->tableWidget->setColumnWidth(1,160);
     ui->tableWidget->setColumnWidth(2,70);
-    ui->tableWidget->setColumnWidth(3,70);
+    ui->tableWidget->setColumnWidth(3,80);
     //设置表头
     QStringList header;
     header.append(QString::fromLocal8Bit("书名"));
@@ -405,7 +405,7 @@ void MainWindow::initWarningList()
             for(i=0;i<BWNUM&&BWpointer->personID!=attentionP->id;BWpointer=BWpointer->nextWarningBorrower,i++)
                 if(!BWpointer->nextWarningBorrower)
                     BWpointer=warningBorrower;
-            if(i<BNUM)
+            if(i<BWNUM)
             {
                 warnList=QString::fromLocal8Bit("您借的书《");
                 warnList.append(QString::fromLocal8Bit(BWpointer->bookName));
@@ -455,7 +455,7 @@ void MainWindow::initWarningList()
         {
             alertList=QString::fromLocal8Bit(RApointer->personName);
             alertList.append(QString::fromLocal8Bit("(ID:"));
-            alertList.append(QString::fromLocal8Bit(RApointer->bookID));
+            alertList.append(QString::number(RApointer->personID,10));
             alertList.append(QString::fromLocal8Bit(")预约的书《"));
             alertList.append(QString::fromLocal8Bit(RApointer->bookName));
             alertList.append(QString::fromLocal8Bit("》(ID:"));
@@ -702,10 +702,10 @@ void MainWindow::on_return_2_clicked()
             borrowedBookNode bpointer1=attentionP->bookBorrowed,bpointer2=NULL;
             for(bpointer2=attentionP->bookBorrowed->nextBB;0!=strcmp(attentionB->id,bpointer2->id);bpointer2=bpointer2->nextBB)
                 bpointer1=bpointer2;
-            bpointer1->nextBB=bpointer2->nextBB;
             int diffDay=GetDiffDays(bpointer2->returnTime[0],bpointer2->returnTime[1],bpointer2->returnTime[2],date->year,date->month,date->day);
             if(0<=diffDay)
             {
+                bpointer1->nextBB=bpointer2->nextBB;
                 attentionP->returnOnTime++;
                 attentionP->borrowNumber--;
                 if(!bpointer1->nextBB)
@@ -739,6 +739,7 @@ void MainWindow::on_return_2_clicked()
                 C=T.data();
                 if(0==strcmp(administrator->key,C))
                 {
+                    bpointer1->nextBB=bpointer2->nextBB;
                     attentionP->borrowNumber--;
                     if(!bpointer1->nextBB)
                         attentionP->borrowedBTail=bpointer1;
@@ -910,7 +911,7 @@ void MainWindow::on_administratorEditor_clicked()
     QByteArray T;
     char * C;
     bool ok=false;
-    QString AD=QInputDialog::getText(this,tr("Edit"),QString::fromLocal8Bit("请输入管理员用户名："),QLineEdit::Password,QString::null,&ok);
+    QString AD=QInputDialog::getText(this,tr("Edit"),QString::fromLocal8Bit("请输入管理员用户名："),QLineEdit::Normal,QString::null,&ok);
     if(ok&&!AD.isEmpty())
     {
         T=AD.toLocal8Bit();
